@@ -64,13 +64,6 @@
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!--  https://mvnrepository.com/artifact/org.projectlombok/lombok  -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-            <scope>provided</scope>
-        </dependency>
         <!--  https://mvnrepository.com/artifact/com.zaxxer/HikariCP  -->
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -95,12 +88,6 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.11.3</version>
         </dependency>
-        <!--   https://mvnrepository.com/artifact/mysql/mysql-connector-java   -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.21</version>
-        </dependency>
         <!--  https://mvnrepository.com/artifact/org.hibernate/hibernate-core  -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -112,17 +99,6 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>2.4.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <version>5.4.5</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -150,6 +126,16 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure -->
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -157,6 +143,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.4</version>
                 <configuration>
                     <excludes>
                         <exclude>

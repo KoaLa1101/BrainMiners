@@ -26,14 +26,17 @@
         <a href="${pageContext.request.contextPath}/" class="navbar-brand ml-3" style="color: blue"><s:message
                 code="header"/></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <sec:authorize access="isAnonymous()">
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-dark my-3" href="${pageContext.request.contextPath}/signIn"><s:message code="sign_in"/></a>
-                    <a class="btn btn-outline-dark my-3 ml-3" href="${pageContext.request.contextPath}/signUp" ><s:message
+                    <a class="btn btn-outline-dark my-3" href="${pageContext.request.contextPath}/signIn"><s:message
+                            code="sign_in"/></a>
+                    <a class="btn btn-outline-dark my-3 ml-3"
+                       href="${pageContext.request.contextPath}/signUp"><s:message
                             code="sign_up"/></a>
                 </div>
             </sec:authorize>
@@ -50,16 +53,31 @@
 
 <div class="text-center ml-3">
     <form:form method="POST" modelAttribute="loginForm">
-        <h2><s:message code="sign_in" /></h2>
+        <h2><s:message code="sign_in"/></h2>
         <div class="text-center ml-3 my-3">
-            <form:input class="col-sm-4 col-form-label" name="username" path="username" type="text" placeholder="" autofocus="true"/>
+            <h5><s:message code="username"/></h5>
+            <form:input path="username" type="text" placeholder="" autofocus="true"/>
         </div>
         <div class="text-center ml-3 my-3">
-            <form:input class="col-sm-4 col-form-label" name="Password" path="password" type="password" placeholder="Password"/>
+            <h5><s:message code="password"/></h5>
+            <form:input path="password" type="password" placeholder="Password"/>
         </div>
-        <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/> </button>
+        <div>
+            <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/></button>
+            <a href="${pageContext.request.contextPath}/login/oauth2/code/google" class="btn btn-outline-primary my-3">Log with goole</a>
+        </div>
     </form:form>
 </div>
 
+<footer class="page-footer font-small blue fixed-bottom ml-3 mr-3"
+        style="position: absolute; background-color: cornflowerblue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://vk.com/koala1101"> vk.com/koala1101</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
 </body>
 </html>

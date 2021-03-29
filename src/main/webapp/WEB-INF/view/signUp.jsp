@@ -24,14 +24,17 @@
         <a href="${pageContext.request.contextPath}/" class="navbar-brand ml-3" style="color: blue"><s:message
                 code="header"/></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <sec:authorize access="isAnonymous()">
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-dark my-3" href="${pageContext.request.contextPath}/signIn"><s:message code="sign_in"/></a>
-                    <a class="btn btn-outline-dark my-3 ml-3" href="${pageContext.request.contextPath}/signUp" ><s:message
+                    <a class="btn btn-outline-dark my-3" href="${pageContext.request.contextPath}/signIn"><s:message
+                            code="sign_in"/></a>
+                    <a class="btn btn-outline-dark my-3 ml-3"
+                       href="${pageContext.request.contextPath}/signUp"><s:message
                             code="sign_up"/></a>
                 </div>
             </sec:authorize>
@@ -46,29 +49,35 @@
     </div>
 </nav>
 
-    <div class="text-center ml-3 my-3">
+<div class="text-center ml-3 my-3">
     <form:form method="POST" modelAttribute="userForm">
         <h2><s:message code="sign_up"/></h2>
         <div class="text-center ml-3 my-3">
+            <h6><s:message code="firstName"/></h6>
             <form:input path="firstName" type="text" placeholder="" autofocus="true"/>
-        </div class="text-center ml-3 my-3">
-        <div>
-            <form:input path="lastName" type="text" placeholder="" autofocus="true"/>
-        </div >
+        </div>
         <div class="text-center ml-3 my-3">
+            <h6><s:message code="lastName"/></h6>
+            <form:input path="lastName" type="text" placeholder="" autofocus="true"/>
+        </div>
+        <div class="text-center ml-3 my-3">
+            <h6><s:message code="password"/></h6>
             <form:input path="password" type="password" placeholder=""/>
         </div>
         <div class="text-center ml-3 my-3">
+            <h6><s:message code="confirmPassword"/></h6>
             <form:input path="passwordConfirm" type="password" placeholder=""/>
             <form:errors path="password"/>
-            ${passwordError}
+                ${passwordError}
         </div>
         <div class="text-center ml-3 my-3">
+            <h6><s:message code="username"/></h6>
             <form:input path="username" type="text" placeholder=""/>
             <form:errors path="username"/>
-            ${usernameError}
+                ${usernameError}
         </div>
         <div class="text-center ml-3 my-3">
+            <h6><s:message code="selectRole"/></h6>
             <form:select path="role" type="text">
                 <form:option value="EMPLOYEE"/>
                 <form:option value="EMPLOYER"/>
@@ -77,6 +86,16 @@
         </div>
         <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/></button>
     </form:form>
+</div>
+<footer class="page-footer font-small blue fixed-bottom ml-3 mr-3"
+        style="position: absolute; background-color: cornflowerblue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://vk.com/koala1101"> vk.com/koala1101</a>
     </div>
+    <!-- Copyright -->
+
+</footer>
 </body>
 </html>

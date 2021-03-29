@@ -74,7 +74,7 @@ public class User implements UserDetails {
     }
 
     @Basic
-    @Column(name = "password", nullable = false, length = 1000)
+    @Column(name = "password", length = 1000)
     public String getPassword() {
         return password;
     }
@@ -85,7 +85,7 @@ public class User implements UserDetails {
     }
 
     @Basic
-    @Column(name = "passwordConfirm", nullable = false, length = 1000)
+    @Column(name = "passwordConfirm", length = 1000)
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
@@ -96,7 +96,7 @@ public class User implements UserDetails {
 
 
     @Basic
-    @Column(name = "role", nullable = false, length = 100)
+    @Column(name = "role", length = 100)
     public Role getRole() {
         return role;
     }
@@ -106,7 +106,7 @@ public class User implements UserDetails {
     }
 
     @Basic
-    @Column(name = "username", nullable = false, length = 100)
+    @Column(name = "username", length = 100)
     public String getUsername() {
         return username;
     }

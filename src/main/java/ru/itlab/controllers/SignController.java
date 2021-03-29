@@ -3,7 +3,6 @@ package ru.itlab.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -25,9 +24,6 @@ import javax.validation.Valid;
 public class SignController {
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping("/signUp")
     public String signUp(Model model) {

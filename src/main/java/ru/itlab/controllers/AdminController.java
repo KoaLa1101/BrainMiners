@@ -18,16 +18,17 @@ public class AdminController {
     private UserService userService;
 
     @GetMapping("/admin")
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     //🤪🤪🤪
     public String userList(Model model, Authentication authentication) {
         log.info(authentication.getAuthorities().toString());
+        log.info(authentication.getName());
         model.addAttribute("allUsers", userService.allUsers());
         return "admin";
     }
 
     @PostMapping("/admin")
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     //🤪🤪🤪
     public String deleteUser(@RequestParam(required = true, defaultValue = "") int userId, @RequestParam(required = true, defaultValue = "") String action, Model model) {
         if (action.equals("delete")) {

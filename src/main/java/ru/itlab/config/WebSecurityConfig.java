@@ -1,33 +1,34 @@
 package ru.itlab.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.AnyRequestMatcher;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import ru.itlab.models.User;
 import ru.itlab.repositories.UserRepository;
 import ru.itlab.services.UserService;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass=true)
+@Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
 
+
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -43,12 +44,35 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
-                .permitAll();
+                .permitAll()
+                .and()
+                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google");
     }
 
+
     @Autowired
-    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
     }
+
+    @Bean
+    public PrincipalExtractor principalExtractor() {
+        log.info("Мы смогли вызвать этот метод");
+        return map -> {
+            User newUser = userService.findUserById((Integer) map.get("sub"));
+            log.info("GGGGGGGGGGGGGGGGGGGGGGGG:" + (String) map.get("sub"));
+            if (newUser == null) {
+                newUser.setId((Integer) map.get("sub"));
+                newUser.setFirstName((String) map.get("given_name"));
+                newUser.setLastName((String) map.get("family_name"));
+                newUser.setRole(User.Role.EMPLOYEE);
+                log.info(newUser.toString());
+                userService.saveUser(newUser);
+            }
+            log.info("Мы сюда не пришли" + "         " + newUser.getId());
+            return newUser;
+        };
+    }
+
 
 }

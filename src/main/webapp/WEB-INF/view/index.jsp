@@ -52,14 +52,15 @@
 
     <sec:authorize access="isAuthenticated()">
         <h2>Hello ${myAcc.firstName} ${myAcc.lastName} </h2>
+        <a class="btn btn-outline-danger my-3 ml-3" href='${pageContext.request.contextPath}/logout'>logout</a>
     </sec:authorize>
 
-    <a class="btn btn-outline-danger my-3 ml-3" href='${pageContext.request.contextPath}/logout'>logout</a>
+
 
 </main>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue fixed-bottom ml-3" style="position: absolute; background-color: cornflowerblue">
+<footer class="page-footer font-small blue fixed-bottom ml-3 mr-3" style="position: absolute; background-color: cornflowerblue">
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
