@@ -40,7 +40,7 @@
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
                 <a class="navbar-brand" href="${pageContext.request.contextPath}/profile">
-                    <img src="/img/" alt="" class="mr-3"> Profile
+                    Profile
                 </a>
             </sec:authorize>
             <a class="btn btn-outline-dark my-3 ml-3" href='${s:mvcUrl("MC#change").arg(0, "ru_RU").build()}'>Eng</a>
