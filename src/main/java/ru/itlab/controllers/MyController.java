@@ -2,6 +2,7 @@ package ru.itlab.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -29,11 +30,12 @@ public class MyController {
     private LocaleResolver localeResolver;
 
     @RequestMapping("/")
-    public String defaultPath(Model model, @AuthenticationPrincipal User user) {
+    public String defaultPath(Model model, @AuthenticationPrincipal User user ,HttpServletRequest request) {
         if (user == null) {
             return "index";
         } else {
-            model.addAttribute("myAcc", userService.loadUserByUsername(user.getUsername()));
+            request.getSession().setAttribute("myAcc", userService.loadUserByUsername(user.getUsername()));
+            model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
         }
 
         return "index";
@@ -75,6 +77,15 @@ public class MyController {
         return "redirect:" + request.getHeader("Referer");
     }
 
+    @RequestMapping("/profile")
+    @PreAuthorize("isAuthenticated()")
+    public String showProfile(Model model, HttpServletRequest request){
+        log.info(request.getSession().getAttribute("myAcc").toString());
+        model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
+        return "profile";
+    }
+
+    //🤬🤬🤬
     private boolean createUserFromOauth2(String firstName, String lastName, OauthForm form, HttpServletRequest request,Principal principal) {
         String username = getUsername(principal);
         User user = userService.loadUserByUsername(username);
@@ -86,6 +97,7 @@ public class MyController {
             userForm.setRole(form.getRole());
             userForm.setPassword(form.getPassword());
             userForm.setPasswordConfirm(form.getPasswordConfirm());
+            request.getSession().setAttribute("myAcc", userForm);
             return userService.saveUser(userForm);
         } else {
             request.getSession().setAttribute("myAcc", user);
@@ -94,6 +106,8 @@ public class MyController {
         return false;
     }
 
+
+    //☢☢☢
     private String getUsername(Principal principal){
         String[] str = principal.toString().split("]],")[1].split(",");
         return str[4].split("=")[1] + "_" + str[12].split("=")[1];

@@ -50,7 +50,7 @@ public class SignController {
 
     @RequestMapping("/signIn")
     @PreAuthorize("isAnonymous()")
-    public String showSignInForm(@ModelAttribute("loginForm") LoginForm loginForm, BindingResult result, ModelMap map) {
+    public String showSignInForm(@ModelAttribute("loginForm") LoginForm loginForm) {
 
         return "signIn";
     }
