@@ -57,4 +57,9 @@ public class UserService implements UserDetailsService {
     public User.Role getRole(User user){
         return user.getRole();
     }
+
+    public boolean updateUser(User oldUser, User newUser){
+        deleteUser(oldUser.getId());
+        return saveUser(newUser);
+    }
 }

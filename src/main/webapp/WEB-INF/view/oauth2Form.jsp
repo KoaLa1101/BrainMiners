@@ -65,6 +65,7 @@
         <div class="text-center ml-3 my-3">
             <h6><s:message code="selectRole"/></h6>
             <form:select path="role" type="text">
+                <form:option value="_"/>
                 <form:option value="EMPLOYEE"/>
                 <form:option value="EMPLOYER"/>
                 <form:option value="ADMIN"/>

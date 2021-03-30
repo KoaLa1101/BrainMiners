@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,7 @@ import ru.itlab.models.User;
 import ru.itlab.models.forms.OauthForm;
 import ru.itlab.services.UserService;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -28,6 +30,8 @@ public class MyController {
     private UserService userService;
     @Autowired
     private LocaleResolver localeResolver;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @RequestMapping("/")
     public String defaultPath(Model model, @AuthenticationPrincipal User user ,HttpServletRequest request) {
@@ -80,9 +84,41 @@ public class MyController {
     @RequestMapping("/profile")
     @PreAuthorize("isAuthenticated()")
     public String showProfile(Model model, HttpServletRequest request){
-        log.info(request.getSession().getAttribute("myAcc").toString());
         model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
+
         return "profile";
+    }
+
+    @GetMapping("/profile/edit")
+    @PreAuthorize("isAuthenticated()")
+    public String showEditProfile(Model model, HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("myAcc");
+        user.setPassword(user.getPasswordConfirm());
+        model.addAttribute("userForm", user);
+        model.addAttribute("password", model.getAttribute("passwordConfirm"));
+        log.info(model.toString());
+
+        return "editProfileForm";
+    }
+
+    @PostMapping("/profile/edit")
+    @PreAuthorize("isAuthenticated()")
+    public String editProfile(Model model, @ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, HttpServletRequest request){
+        User oldUser = (User) request.getSession().getAttribute("myAcc");
+        if (bindingResult.hasErrors()) return "editProfileForm";
+        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
+            model.addAttribute("passwordError", "Passwords are not equals");
+            return "editProfileForm";
+        }
+        if (userService.loadUserByUsername(userForm.getUsername()) == null && userForm.getUsername().equals(oldUser.getUsername())) {
+            model.addAttribute("usernameError", "User with username like it is exist");
+            return "editProfileForm";
+        }
+        userService.updateUser(oldUser, userForm);
+        request.getSession().setAttribute("myAcc", userForm);
+
+
+        return "redirect:/profile";
     }
 
     //🤬🤬🤬

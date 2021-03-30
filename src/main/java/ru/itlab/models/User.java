@@ -37,7 +37,7 @@ public class User implements UserDetails {
 
 
     public enum Role {
-        EMPLOYEE, EMPLOYER, ADMIN;
+        _, EMPLOYEE, EMPLOYER, ADMIN;
 
     }
 
