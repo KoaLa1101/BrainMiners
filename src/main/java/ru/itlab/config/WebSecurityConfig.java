@@ -46,32 +46,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
                 .permitAll()
                 .and()
-                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google");
+                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google").defaultSuccessUrl("/home");
     }
 
 
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
-    }
-
-    @Bean
-    public PrincipalExtractor principalExtractor() {
-        log.info("Мы смогли вызвать этот метод");
-        return map -> {
-            User newUser = userService.findUserById((Integer) map.get("sub"));
-            log.info("GGGGGGGGGGGGGGGGGGGGGGGG:" + (String) map.get("sub"));
-            if (newUser == null) {
-                newUser.setId((Integer) map.get("sub"));
-                newUser.setFirstName((String) map.get("given_name"));
-                newUser.setLastName((String) map.get("family_name"));
-                newUser.setRole(User.Role.EMPLOYEE);
-                log.info(newUser.toString());
-                userService.saveUser(newUser);
-            }
-            log.info("Мы сюда не пришли" + "         " + newUser.getId());
-            return newUser;
-        };
     }
 
 
