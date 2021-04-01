@@ -67,6 +67,7 @@
             <a href="${pageContext.request.contextPath}/login/oauth2/code/google" class="btn btn-outline-primary my-3">Log with goole</a>
         </div>
     </form:form>
+        <a href="https://id.twitch.tv/oauth2/authorize?client_id=tjoimkitr364hbqdnkmbjtexekvxdq&redirect_uri=http://localhost:8080/login/oauth&response_type=code&scope=user:read:email">twitch oauth</a>
 </div>
 
 <footer class="page-footer font-small blue fixed-bottom ml-3 mr-3"

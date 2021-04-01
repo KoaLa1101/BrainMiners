@@ -5,13 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import ru.itlab.config.RootConfig;
 import ru.itlab.config.WebConfig;
 import ru.itlab.config.WebSecurityConfig;
 
 @Configuration
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
-@Import({RootConfig.class, WebSecurityConfig.class, WebConfig.class})
+@SpringBootApplication
+@Import({WebSecurityConfig.class, WebConfig.class})
 public class BrainMinerApplication {
 
     public static void main(String[] args) {

@@ -7,6 +7,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
@@ -117,6 +118,12 @@ public class MyController {
 
 
         return "redirect:/profile";
+    }
+
+    @RequestMapping("/login/oauth")
+    public String showCode(@RequestParam String code, ModelMap map){
+        map.put("code", code);
+        return "showCode";
     }
 
     //🤬🤬🤬
