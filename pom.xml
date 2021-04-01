@@ -138,11 +138,6 @@
             <version>2.6</version>
             <type>maven-plugin</type>
         </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0</version>
-        </dependency>
     </dependencies>
 
     <build>
