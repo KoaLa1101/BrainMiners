@@ -25,7 +25,7 @@ public class SignController {
     private UserService userService;
 
     @GetMapping("/signUp")
-    public String signUp(Model model) {
+    public String showSignUpForm(Model model) {
         model.addAttribute("userForm", new User());
 
         return "signUp";
