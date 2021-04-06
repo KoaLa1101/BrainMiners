@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
                 .permitAll()
                 .and()
-                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google").defaultSuccessUrl("/home");
+                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google").defaultSuccessUrl("/authByGoogle");
     }
 
 

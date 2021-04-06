@@ -15,7 +15,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "Properties")
+@Table(name = "properties")
 public class Properties {
     private int id;
     private String education;

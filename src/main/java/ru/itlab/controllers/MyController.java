@@ -44,10 +44,11 @@ public class MyController {
         return "index";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/authByGoogle")
     public String loginOauth2(Model model, Principal principal, HttpServletRequest request) {
         String username = getUsername(principal);
         User user = userService.loadUserByUsername(username);
+        log.info(principal.toString());
         if (user == null) {
             model.addAttribute("oauth2Form", new User());
             return "oauth2Form";
@@ -58,7 +59,7 @@ public class MyController {
         }
     }
 
-    @PostMapping("/home")
+    @PostMapping("/authByGoogle")
     //🤮🤬
     public String signUpOauth2(Principal principal, @ModelAttribute("oauth2Form") @Valid OauthForm form, BindingResult bindingResult, Model model, HttpServletRequest request) {
         String[] str = principal.toString().split("]],")[1].split(",");
