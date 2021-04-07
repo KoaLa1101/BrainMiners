@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
+import ru.itlab.annotations.MyLog;
 import ru.itlab.models.User;
 import ru.itlab.models.forms.OauthForm;
 import ru.itlab.services.UserService;
@@ -81,6 +82,7 @@ public class MyController {
         return "redirect:" + request.getHeader("Referer");
     }
 
+    @MyLog
     @RequestMapping("/profile")
     @PreAuthorize("isAuthenticated()")
     public String showProfile(Model model, HttpServletRequest request){
