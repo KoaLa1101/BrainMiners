@@ -1,6 +1,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><%--
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%--
   Created by IntelliJ IDEA.
   User: koala
   Date: 20.03.2021
@@ -60,7 +61,10 @@
         </div>
         <div class="text-center ml-3 my-3">
             <h5><s:message code="password"/></h5>
-            <form:input path="password" type="password" placeholder="Password"/>
+            <c:set var="msg">
+                <s:message code="password"/>
+            </c:set>
+            <form:input path="password" type="password" placeholder="${msg}"/>
         </div>
         <div>
             <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/></button>
