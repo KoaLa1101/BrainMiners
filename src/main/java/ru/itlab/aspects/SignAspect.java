@@ -16,7 +16,7 @@ import java.security.Principal;
 @Aspect
 @Component
 public class SignAspect {
-    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     @Before("execution(* ru.itlab.controllers.SignController.showSignUpForm(..))")
     public void logBefore(JoinPoint joinPoint){
@@ -34,7 +34,7 @@ public class SignAspect {
         System.out.println(joinPoint.getSignature().getName() + result);
     }
 
-    @Around("@annotation(ru.itlab.annotations.MyLog)")
+    /*@Around("@annotation(ru.itlab.annotations.MyLog)")
         public Object logAfterProfile(ProceedingJoinPoint pjp) throws Throwable {
         Principal principal = SecurityContextHolder.getContext().getAuthentication();
         String nameOfUser = principal.getName();
@@ -42,5 +42,5 @@ public class SignAspect {
         String nameOfMethod = pjp.getSignature().toString().split(" ")[1];
         logger.info("logs by " + nameOfMethod + " Special for" + nameOfUser);
         return pjp.proceed();
-    }
+    }*/
 }

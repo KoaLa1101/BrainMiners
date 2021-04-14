@@ -1,7 +1,9 @@
 package ru.itlab.controllers;
 
+import com.nimbusds.oauth2.sdk.http.HTTPResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.resource.HttpResource;
 import ru.itlab.annotations.MyLog;
 import ru.itlab.models.User;
 import ru.itlab.models.forms.OauthForm;
@@ -34,7 +37,7 @@ public class MyController {
     private BCryptPasswordEncoder passwordEncoder;
 
     @RequestMapping("/")
-    public String defaultPath(Model model, @AuthenticationPrincipal User user ,HttpServletRequest request) {
+    public String defaultPath(Model model, @AuthenticationPrincipal User user, HttpServletRequest request) {
         if (user == null) {
             return "index";
         } else {
@@ -53,8 +56,7 @@ public class MyController {
         if (user == null) {
             model.addAttribute("oauth2Form", new User());
             return "oauth2Form";
-        }
-        else{
+        } else {
             request.getSession().setAttribute("myAcc", user);
             return "redirect:/";
         }
@@ -82,10 +84,9 @@ public class MyController {
         return "redirect:" + request.getHeader("Referer");
     }
 
-    @MyLog
     @RequestMapping("/profile")
     @PreAuthorize("isAuthenticated()")
-    public String showProfile(Model model, HttpServletRequest request){
+    public String showProfile(Model model, HttpServletRequest request) {
         model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
 
         return "profile";
@@ -93,7 +94,7 @@ public class MyController {
 
     @GetMapping("/profile/edit")
     @PreAuthorize("isAuthenticated()")
-    public String showEditProfile(Model model, HttpServletRequest request){
+    public String showEditProfile(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("myAcc");
         user.setPassword(user.getPasswordConfirm());
         model.addAttribute("userForm", user);
@@ -105,7 +106,7 @@ public class MyController {
 
     @PostMapping("/profile/edit")
     @PreAuthorize("isAuthenticated()")
-    public String editProfile(Model model, @ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, HttpServletRequest request){
+    public String editProfile(Model model, @ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, HttpServletRequest request) {
         User oldUser = (User) request.getSession().getAttribute("myAcc");
         if (bindingResult.hasErrors()) return "editProfileForm";
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
@@ -124,13 +125,19 @@ public class MyController {
     }
 
     @RequestMapping("/login/oauth")
-    public String showCode(@RequestParam String code, ModelMap map){
+    public String showCode(@RequestParam String code, ModelMap map) {
         map.put("code", code);
         return "showCode";
     }
 
+
+    @RequestMapping("/users")
+    public String showError(HttpServletResponse response){
+
+        return ("status:" + /*response.getStatus()*/ "404");
+    }
     //🤬🤬🤬
-    private boolean createUserFromOauth2(String firstName, String lastName, OauthForm form, HttpServletRequest request,Principal principal) {
+    private boolean createUserFromOauth2(String firstName, String lastName, OauthForm form, HttpServletRequest request, Principal principal) {
         String username = getUsername(principal);
         User user = userService.loadUserByUsername(username);
         if (user == null) {
@@ -152,7 +159,7 @@ public class MyController {
 
 
     //☢☢☢
-    private String getUsername(Principal principal){
+    private String getUsername(Principal principal) {
         String[] str = principal.toString().split("]],")[1].split(",");
         return str[4].split("=")[1] + "_" + str[12].split("=")[1];
     }
