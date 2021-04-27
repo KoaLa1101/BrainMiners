@@ -45,7 +45,7 @@ public class MyController {
             return "index";
         } else {
             request.getSession().setAttribute("myAcc", userService.loadUserByUsername(user.getUsername()));
-            request.getSession().setAttribute("myProps", propService.propByUser(user.getId()).orElseThrow(IllegalStateException::new));
+            request.getSession().setAttribute("myProps", propService.propByUser(user.getId()));
             log.info("Users props : " + propService.propByUser(user.getId()));
             model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
             model.addAttribute("myProps", request.getSession().getAttribute("myProps"));
@@ -93,7 +93,9 @@ public class MyController {
     @RequestMapping("/profile")
     @PreAuthorize("isAuthenticated()")
     public String showProfile(Model model, HttpServletRequest request) {
-        model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
+        User myAcc = (User) request.getSession().getAttribute("myAcc");
+        model.addAttribute("myAcc", myAcc);
+        log.info("Show profile: " + userService.showUser(myAcc.getId()));
 
         return "profile";
     }
@@ -105,7 +107,7 @@ public class MyController {
         user.setPassword(user.getPasswordConfirm());
         model.addAttribute("userForm", user);
         model.addAttribute("password", model.getAttribute("passwordConfirm"));
-        log.info(model.toString());
+        log.info("From showForm: " + model);
 
         return "editProfileForm";
     }
@@ -113,18 +115,24 @@ public class MyController {
     @PostMapping("/profile/edit")
     @PreAuthorize("isAuthenticated()")
     public String editProfile(Model model, @ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, HttpServletRequest request) {
-        User oldUser = (User) request.getSession().getAttribute("myAcc");
+        User user = (User) request.getSession().getAttribute("myAcc");
         if (bindingResult.hasErrors()) return "editProfileForm";
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
             model.addAttribute("passwordError", "Passwords are not equals");
             return "editProfileForm";
         }
-        if (userService.loadUserByUsername(userForm.getUsername()) == null && userForm.getUsername().equals(oldUser.getUsername())) {
+        if (userService.loadUserByUsername(userForm.getUsername()) == null && userForm.getUsername().equals(user.getUsername())) {
             model.addAttribute("usernameError", "User with username like it is exist");
             return "editProfileForm";
         }
-        userService.updateUser(oldUser, userForm);
-        request.getSession().setAttribute("myAcc", userForm);
+        user.setFirstName(userForm.getFirstName());
+        user.setLastName(userForm.getLastName());
+        user.setPassword(passwordEncoder.encode(userForm.getPassword()));
+        user.setPasswordConfirm(userForm.getPasswordConfirm());
+        user.setUsername(userForm.getUsername());
+        log.info("User for upd: " + user);
+        userService.updateUser(user);
+        request.getSession().setAttribute("myAcc", user);
 
 
         return "redirect:/profile";

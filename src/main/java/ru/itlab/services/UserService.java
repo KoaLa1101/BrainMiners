@@ -58,8 +58,11 @@ public class UserService implements UserDetailsService {
         return user.getRole();
     }
 
-    public boolean updateUser(User oldUser, User newUser){
-        deleteUser(oldUser.getId());
-        return saveUser(newUser);
+    public int updateUser(User user){
+        return userRepository.updateUsr(user.getFirstName(), user.getLastName(), user.getPassword(), user.getPasswordConfirm(), user.getUsername(), user.getId());
+    }
+
+    public User showUser(int userId){
+       return userRepository.showUser(userId);
     }
 }
