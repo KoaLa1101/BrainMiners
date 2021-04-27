@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Data
-@DynamicUpdate
+//@DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -24,7 +24,18 @@ public class Properties {
     private String sphereOfWork;
     private String salaryWork;
     private String levelOfEnglish;
-    private User userById;
+
+    private User user;
+
+    @OneToOne(mappedBy = "properties", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", nullable = false)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Id
     public int getId() {
@@ -106,16 +117,6 @@ public class Properties {
     @Override
     public int hashCode() {
         return Objects.hash(id, education, busyness, experience, sphereOfWork, salaryWork, levelOfEnglish);
-    }
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
-    public User getUserById() {
-        return userById;
-    }
-
-    public void setUserById(User userById) {
-        this.userById = userById;
     }
 
     public void setId(Integer id) {

@@ -1,9 +1,7 @@
 package ru.itlab.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,7 +15,7 @@ import java.util.Objects;
 
 @Entity
 @Data
-@DynamicUpdate
+//@DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -28,8 +26,21 @@ public class User implements UserDetails {
     private String lastName;
     private String password;
     private String passwordConfirm;
-    private Properties propertiesById;
     private String username;
+
+    @ToString.Exclude
+    @JsonIgnore
+    private Properties properties;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="properties")
+    public Properties getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Properties properties) {
+        this.properties = properties;
+    }
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -39,7 +50,6 @@ public class User implements UserDetails {
         _, EMPLOYEE, EMPLOYER, ADMIN;
 
     }
-
 
     @Id
     @Column(name = "id", nullable = false)
@@ -121,15 +131,6 @@ public class User implements UserDetails {
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, password, role);
-    }
-
-    @OneToOne(mappedBy = "userById", fetch = FetchType.LAZY)
-    public Properties getPropertiesById() {
-        return propertiesById;
-    }
-
-    public void setPropertiesById(Properties propertiesById) {
-        this.propertiesById = propertiesById;
     }
 
     // Methods from UserDetails

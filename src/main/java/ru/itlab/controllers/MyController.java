@@ -17,6 +17,7 @@ import org.springframework.web.servlet.resource.HttpResource;
 import ru.itlab.annotations.MyLog;
 import ru.itlab.models.User;
 import ru.itlab.models.forms.OauthForm;
+import ru.itlab.services.PropService;
 import ru.itlab.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,8 @@ public class MyController {
     @Autowired
     private UserService userService;
     @Autowired
+    private PropService propService;
+    @Autowired
     private LocaleResolver localeResolver;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -42,7 +45,10 @@ public class MyController {
             return "index";
         } else {
             request.getSession().setAttribute("myAcc", userService.loadUserByUsername(user.getUsername()));
+            request.getSession().setAttribute("myProps", propService.propByUser(user.getId()).orElseThrow(IllegalStateException::new));
+            log.info("Users props : " + propService.propByUser(user.getId()));
             model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
+            model.addAttribute("myProps", request.getSession().getAttribute("myProps"));
         }
 
         return "index";

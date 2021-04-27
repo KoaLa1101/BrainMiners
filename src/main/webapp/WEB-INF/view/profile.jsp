@@ -57,7 +57,10 @@
             <p class="ml-3 mr-3"><s:message code="role"/>: <br> ${myAcc.role} <br> </p>
             <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
                href="${pageContext.request.contextPath}/profile/edit" role="button"><s:message code="editProfile"/> </a>
-            <br> <br>
+            <br>
+            <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
+               href="${pageContext.request.contextPath}/profile/myProps" role="button"><s:message code="props"/> </a>
+            <br>
             <a class="btn btn-lg btn-danger ml-auto mr-auto" href="${pageContext.request.contextPath}/logout"
                role="button"><s:message code="logout"/> </a>
 

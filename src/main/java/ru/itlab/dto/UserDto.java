@@ -31,8 +31,8 @@ public class UserDto {
                 .role(user.getRole())
                 .build();
 
-        if(user.getPropertiesById() != null)
-            result.setProperties(user.getPropertiesById());
+        if(user.getProperties() != null)
+            result.setProperties(user.getProperties());
 
         return result;
     }

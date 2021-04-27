@@ -51,39 +51,60 @@
 <!-- Main -->
 <main>
     <div class="text-center ml-3 my-3">
-        <form:form method="POST" modelAttribute="userForm">
-            <h2><s:message code="sign_up"/></h2>
+        <form:form method="POST" modelAttribute="propForm">
             <div class="text-center ml-3 my-3">
-                <h6><s:message code="firstName"/></h6>
-                <form:input path="firstName" type="text" placeholder="" autofocus="true"/>
-            </div>
-            <div class="text-center ml-3 my-3">
-                <h6><s:message code="lastName"/></h6>
-                <form:input path="lastName" type="text" placeholder="" autofocus="true"/>
-            </div>
-            <div class="text-center ml-3 my-3">
-                <h6><s:message code="password"/></h6>
-                <form:input path="password" type="password" placeholder=""/>
-            </div>
-            <div class="text-center ml-3 my-3">
-                <h6><s:message code="confirmPassword"/></h6>
-                <form:input path="passwordConfirm" type="password" placeholder=""/>
-                <form:errors path="password"/>
-                    ${passwordError}
-            </div>
-            <div class="text-center ml-3 my-3">
-                <h6><s:message code="username"/></h6>
-                <form:input path="username" type="text" placeholder=""/>
-                <form:errors path="username"/>
-                    ${usernameError}
-            </div>
-            <div class="text-center ml-3 my-3">
-                <h6><s:message code="selectRole"/></h6>
-                <form:select path="role" type="text">
+                <h6>Select</h6>
+                <form:select path="busyness" type="text">
                     <form:option value="_"/>
-                    <form:option value="EMPLOYEE"/>
-                    <form:option value="EMPLOYER"/>
-                    <form:option value="ADMIN"/>
+                    <form:option value="Full day (8 hour)"/>
+                    <form:option value="Part of day (4 hour)"/>
+                    <form:option value="2/2"/>
+                </form:select>
+            </div>
+            <div class="text-center ml-3 my-3">
+                <h6>Select</h6>
+                <form:select path="education" type="text">
+                    <form:option value="_"/>
+                    <form:option value="Higher education"/>
+                    <form:option value="Incomplete higher education"/>
+                    <form:option value="Secondary education"/>
+                </form:select>
+            </div>
+            <div class="text-center ml-3 my-3">
+                <h6>Select</h6>
+                <form:select path="experience" type="text">
+                    <form:option value="_"/>
+                    <form:option value="Haven't an exp"/>
+                    <form:option value="Less 2 years"/>
+                    <form:option value="More 2 years"/>
+                </form:select>
+            </div>
+            <div class="text-center ml-3 my-3">
+                <h6>Select</h6>
+                <form:select path="levelOfEnglish" type="text">
+                    <form:option value="_"/>
+                    <form:option value="A1-A2"/>
+                    <form:option value="B1-C1"/>
+                    <form:option value="C2 or Native"/>
+                </form:select>
+            </div>
+            <div class="text-center ml-3 my-3">
+                <h6>Select</h6>
+                <form:select path="salaryWork" type="text">
+                    <form:option value="_"/>
+                    <form:option value="15000 - 25000"/>
+                    <form:option value="25001 - 50000"/>
+                    <form:option value="more than 50001"/>
+                </form:select>
+            </div>
+            <div class="text-center ml-3 my-3">
+                <h6>Select</h6>
+                <form:select path="sphereOfWork" type="text">
+                    <form:option value="_"/>
+                    <form:option value="warehouse workers"/>
+                    <form:option value="office worker"/>
+                    <form:option value="worker with people"/>
+                    <form:option value="distant worker"/>
                 </form:select>
             </div>
             <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/></button>
