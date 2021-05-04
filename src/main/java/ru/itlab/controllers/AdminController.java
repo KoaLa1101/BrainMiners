@@ -21,8 +21,6 @@ public class AdminController {
     @PreAuthorize("hasAuthority('ADMIN')")
     //🤪🤪🤪
     public String userList(Model model, Authentication authentication) {
-        log.info(authentication.getAuthorities().toString());
-        log.info(authentication.getName());
         model.addAttribute("allUsers", userService.allUsers());
         return "admin";
     }

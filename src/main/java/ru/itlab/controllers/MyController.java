@@ -1,9 +1,7 @@
 package ru.itlab.controllers;
 
-import com.nimbusds.oauth2.sdk.http.HTTPResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,8 +11,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.resource.HttpResource;
-import ru.itlab.annotations.MyLog;
 import ru.itlab.models.User;
 import ru.itlab.models.forms.OauthForm;
 import ru.itlab.services.PropService;
@@ -46,7 +42,6 @@ public class MyController {
         } else {
             request.getSession().setAttribute("myAcc", userService.loadUserByUsername(user.getUsername()));
             request.getSession().setAttribute("myProps", propService.propByUser(user.getId()));
-            log.info("Users props : " + propService.propByUser(user.getId()));
             model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
             model.addAttribute("myProps", request.getSession().getAttribute("myProps"));
         }
@@ -58,7 +53,6 @@ public class MyController {
     public String loginOauth2(Model model, Principal principal, HttpServletRequest request) {
         String username = getUsername(principal);
         User user = userService.loadUserByUsername(username);
-        log.info(principal.toString());
         if (user == null) {
             model.addAttribute("oauth2Form", new User());
             return "oauth2Form";
@@ -95,7 +89,6 @@ public class MyController {
     public String showProfile(Model model, HttpServletRequest request) {
         User myAcc = (User) request.getSession().getAttribute("myAcc");
         model.addAttribute("myAcc", myAcc);
-        log.info("Show profile: " + userService.showUser(myAcc.getId()));
 
         return "profile";
     }
@@ -107,7 +100,6 @@ public class MyController {
         user.setPassword(user.getPasswordConfirm());
         model.addAttribute("userForm", user);
         model.addAttribute("password", model.getAttribute("passwordConfirm"));
-        log.info("From showForm: " + model);
 
         return "editProfileForm";
     }
@@ -130,7 +122,6 @@ public class MyController {
         user.setPassword(passwordEncoder.encode(userForm.getPassword()));
         user.setPasswordConfirm(userForm.getPasswordConfirm());
         user.setUsername(userForm.getUsername());
-        log.info("User for upd: " + user);
         userService.updateUser(user);
         request.getSession().setAttribute("myAcc", user);
 
@@ -166,7 +157,6 @@ public class MyController {
             return userService.saveUser(userForm);
         } else {
             request.getSession().setAttribute("myAcc", user);
-            log.info(user.toString());
         }
         return false;
     }

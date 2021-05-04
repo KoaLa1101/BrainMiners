@@ -53,7 +53,7 @@
     <div class="text-center ml-3 my-3">
         <form:form method="POST" modelAttribute="propForm">
             <div class="text-center ml-3 my-3">
-                <h6>Select</h6>
+                <h6>Select busyness</h6>
                 <form:select path="busyness" type="text">
                     <form:option value="_"/>
                     <form:option value="Full day (8 hour)"/>
@@ -62,7 +62,7 @@
                 </form:select>
             </div>
             <div class="text-center ml-3 my-3">
-                <h6>Select</h6>
+                <h6>Select education</h6>
                 <form:select path="education" type="text">
                     <form:option value="_"/>
                     <form:option value="Higher education"/>
@@ -71,7 +71,7 @@
                 </form:select>
             </div>
             <div class="text-center ml-3 my-3">
-                <h6>Select</h6>
+                <h6>Select experience</h6>
                 <form:select path="experience" type="text">
                     <form:option value="_"/>
                     <form:option value="Haven't an exp"/>
@@ -80,7 +80,7 @@
                 </form:select>
             </div>
             <div class="text-center ml-3 my-3">
-                <h6>Select</h6>
+                <h6>Select level of English</h6>
                 <form:select path="levelOfEnglish" type="text">
                     <form:option value="_"/>
                     <form:option value="A1-A2"/>
@@ -89,7 +89,7 @@
                 </form:select>
             </div>
             <div class="text-center ml-3 my-3">
-                <h6>Select</h6>
+                <h6>Select salary</h6>
                 <form:select path="salaryWork" type="text">
                     <form:option value="_"/>
                     <form:option value="15000 - 25000"/>
@@ -98,7 +98,7 @@
                 </form:select>
             </div>
             <div class="text-center ml-3 my-3">
-                <h6>Select</h6>
+                <h6>Select sphere of work</h6>
                 <form:select path="sphereOfWork" type="text">
                     <form:option value="_"/>
                     <form:option value="warehouse workers"/>

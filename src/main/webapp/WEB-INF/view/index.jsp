@@ -52,6 +52,7 @@
 
     <sec:authorize access="isAuthenticated()">
         <h2>Hello ${myAcc.firstName} ${myAcc.lastName} </h2>
+        <a class="btn btn-outline-link my-3 ml-3" href="${pageContext.request.contextPath}/findEmployee">Find Employee</a>
         <a class="btn btn-outline-danger my-3 ml-3" href='${pageContext.request.contextPath}/logout'>logout</a>
     </sec:authorize>
 

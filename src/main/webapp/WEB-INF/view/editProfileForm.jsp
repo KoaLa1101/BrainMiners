@@ -75,15 +75,6 @@
                 <form:errors path="username"/>
                     ${usernameError}
             </div>
-            <div class="text-center ml-3 my-3">
-                <h6><s:message code="selectRole"/></h6>
-                <form:select path="role" type="text">
-                    <form:option value="_"/>
-                    <form:option value="EMPLOYEE"/>
-                    <form:option value="EMPLOYER"/>
-                    <form:option value="ADMIN"/>
-                </form:select>
-            </div>
             <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/></button>
         </form:form>
     </div>
