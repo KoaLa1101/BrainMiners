@@ -59,17 +59,17 @@ public class PropController {
         }
     }
 
-    @PreAuthorize("hasAuthority('EMPLOYER')")
+    @PreAuthorize("hasAuthority('EMPLOYEE')")
     @GetMapping("/findEmployee")
     public String prepareAllEmployee(Model model){
-        User.Role role = User.Role.EMPLOYEE;
+        User.Role role = User.Role.EMPLOYER;
         model.addAttribute("allEmployee", userService.allUserByRole(role));
         model.addAttribute("filter", new Properties());
         return "findEmployee";
     }
 
 
-    @PreAuthorize("hasAuthority('EMPLOYER')")
+    @PreAuthorize("hasAuthority('EMPLOYEE')")
     @PostMapping("/findEmployee")
     public String filterEmployee(@ModelAttribute("filter") Properties filter, Model model, HttpServletRequest request){
         Properties props = new Properties();

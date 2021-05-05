@@ -58,9 +58,11 @@
             <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
                href="${pageContext.request.contextPath}/profile/edit" role="button"><s:message code="editProfile"/> </a>
             <br>
+            <sec:authorize access="hasAuthority('EMPLOYER')">
             <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
                href="${pageContext.request.contextPath}/profile/myProps" role="button"><s:message code="props"/> </a>
             <br>
+            </sec:authorize>
             <a class="btn btn-lg btn-danger ml-auto mr-auto" href="${pageContext.request.contextPath}/logout"
                role="button"><s:message code="logout"/> </a>
 

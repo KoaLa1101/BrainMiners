@@ -44,7 +44,6 @@ public class MyController {
             request.getSession().setAttribute("myProps", propService.propByUser(user.getId()));
             model.addAttribute("myAcc", request.getSession().getAttribute("myAcc"));
             model.addAttribute("myProps", request.getSession().getAttribute("myProps"));
-            log.info("Messages: " + user.getMessageList());
         }
 
         return "index";
