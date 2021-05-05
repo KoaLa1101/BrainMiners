@@ -10,12 +10,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 
 @Entity
 @Data
-//@DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -27,6 +27,19 @@ public class User implements UserDetails {
     private String password;
     private String passwordConfirm;
     private String username;
+    private List<Message> messageList;
+
+    @OneToMany
+    @Column(name = "messages", nullable = true)
+    @JoinTable(name = "user_messages", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "message_id", referencedColumnName = "id") )
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
+    }
 
     @ToString.Exclude
     @JsonIgnore

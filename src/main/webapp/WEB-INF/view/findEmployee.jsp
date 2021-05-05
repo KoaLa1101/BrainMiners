@@ -79,6 +79,13 @@
                                 <p>sphere of work : ${user.properties.sphereOfWork} </p>
                             </div>
                         </td>
+                        <td>
+                            <form action="${pageContext.request.contextPath}/findEmployee/newMes" method="get">
+                                <input type="hidden" name="userId" value="${user.id}"/>
+                                <input type="hidden" name="action" value="create"/>
+                                <button class="btn btn-outline-success" type="submit">Send response</button>
+                            </form>
+                        </td>
                     </tr>
                 </div>
 

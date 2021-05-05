@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.itlab.models.Message;
 import ru.itlab.models.Properties;
 import ru.itlab.models.User;
 import ru.itlab.repositories.UserRepository;
@@ -73,5 +74,9 @@ public class UserService implements UserDetailsService {
 
     public List<User> findAllByProperties(Properties properties){
         return userRepository.allUserByProps(properties.getId(), properties.getEducation(), properties.getBusyness(), properties.getExperience(), properties.getLevelOfEnglish(), properties.getSalaryWork(), properties.getSphereOfWork());
+    }
+
+    public List<Message> allMes(User user){
+        return user.getMessageList();
     }
 }
