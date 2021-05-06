@@ -20,5 +20,9 @@ public class MesService {
         return true;
     }
 
+    public Message findById(int mesId){
+        return mesRepository.findById(mesId);
+    }
+
 
 }

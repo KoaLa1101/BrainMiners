@@ -6,4 +6,5 @@ import ru.itlab.models.Message;
 
 @Repository
 public interface MesRepository extends JpaRepository<Message, Integer> {
+    Message findById(int mesId);
 }

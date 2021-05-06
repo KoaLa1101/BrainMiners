@@ -53,9 +53,9 @@
 <!--Main-->
 <main>
 
-    <h3>Let's find employee for ${myAcc.username}</h3>
+    <h3>Let's find employer for ${myAcc.username}</h3>
     <div class="d-flex justify-content-around">
-        <c:if test="${empty allEmployee}"><br><br><h2>Not Employee</h2> </c:if>
+        <c:if test="${empty allEmployee}"><br><br><h2>Not Employer</h2> </c:if>
         <c:if test="${not empty allEmployee}">
         <table style="background-color: aliceblue">
             <thead>

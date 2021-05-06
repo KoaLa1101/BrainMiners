@@ -1,23 +1,20 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: koala
+  Date: 24.10.2020
+  Time: 11:21
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: koala
-  Date: 20.03.2021
-  Time: 15:46
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
     <title>BrainMiners</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-    <script src="https://cdn.tiny.cloud/1/xh32za4tf46uoqx53xou51b07063vnglx7te4mq2jyxky1jd/tinymce/5/tinymce.min.js"
-            referrerpolicy="origin"></script>
 </head>
 <body>
 
@@ -51,29 +48,36 @@
         </div>
     </div>
 </nav>
-<!-- Main -->
-<main>
-    <div class="text-center ml-3 my-3">
-        <form:form method="POST" modelAttribute="newMes">
-            <h2>Let's create message for Employee </h2>
-            <br><br>
-            <s:message code="valueChange"/>
-            <form:textarea path="mes" cssStyle="width: 100%; height: 600px"/>
-            <script>
-                tinymce.init({
-                    selector: 'textarea',
-                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
-                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-                    toolbar_mode: 'floating',
-                    tinycomments_author: 'Koala1101'
-                });
-            </script>
-            <br><br>
 
-            <button class="btn btn-outline-success" type="submit"><s:message code="submit"/></button>
-        </form:form>
+
+<!--Main-->
+<main>
+
+    <h3 class="ml-3">Messages for ${myAcc.username}</h3>
+    <div class="mt-3">
+        <c:if test="${empty allMyMes}"><br><br><h2>You haven't any requests</h2> </c:if>
+        <c:if test="${not empty allMyMes}">
+                <c:forEach items="${allMyMes}" var="mes">
+                    <div class="mr-xl-5 ml-3 mt-3" style="border: black solid 1px">
+                        <p style="background-color: lightgray"> ${mes.mes} </p>
+                        <form action="${pageContext.request.contextPath}/profile/myMes" method="post">
+                            <input type="hidden" name="mesId" value="${mes.id}"/>
+                            <input type="hidden" name="action" value="delete"/>
+                            <button class="btn btn-outline-danger" type="submit">Remove request</button>
+                        </form>
+                    </div>
+                </c:forEach>
+
+        </c:if>
+
     </div>
+    <br>
+    <a class="btn btn-outline-primary ml-3" href="/"><s:message code="home"/> </a>
+
+
 </main>
+
+<!-- Footer -->
 <footer class="page-footer font-small blue fixed-bottom ml-3 mr-3"
         style="position: absolute; background-color: cornflowerblue">
 
@@ -84,5 +88,11 @@
     <!-- Copyright -->
 
 </footer>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

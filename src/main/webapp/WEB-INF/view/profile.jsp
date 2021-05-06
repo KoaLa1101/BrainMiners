@@ -51,17 +51,21 @@
     <div class="d-flex  align-items-center justify-content-center ml-3 mr-3">
         <div class="vh-100 d-flex flex-column align-items-center justify-content-center h4"
              style="background-color: aliceblue; width: 20%; ">
-            <p class="ml-3 mr-3"><s:message code="firstName"/>: <br> ${myAcc.firstName} <br> </p>
-            <p class="ml-3 mr-3"><s:message code="lastName"/>: <br> ${myAcc.lastName} <br> </p>
-            <p class="ml-3 mr-3"><s:message code="username"/>: <br> ${myAcc.username} <br> </p>
-            <p class="ml-3 mr-3"><s:message code="role"/>: <br> ${myAcc.role} <br> </p>
+            <p class="ml-3 mr-3"><s:message code="firstName"/>: <br> ${myAcc.firstName} <br></p>
+            <p class="ml-3 mr-3"><s:message code="lastName"/>: <br> ${myAcc.lastName} <br></p>
+            <p class="ml-3 mr-3"><s:message code="username"/>: <br> ${myAcc.username} <br></p>
+            <p class="ml-3 mr-3"><s:message code="role"/>: <br> ${myAcc.role} <br></p>
             <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
                href="${pageContext.request.contextPath}/profile/edit" role="button"><s:message code="editProfile"/> </a>
             <br>
             <sec:authorize access="hasAuthority('EMPLOYER')">
-            <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-               href="${pageContext.request.contextPath}/profile/myProps" role="button"><s:message code="props"/> </a>
-            <br>
+                <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
+                   href="${pageContext.request.contextPath}/profile/myProps" role="button"><s:message
+                        code="props"/> </a>
+                <br>
+                <a class="btn btn-outline-info btn-lg ml-auto mr-auto"
+                   href="${pageContext.request.contextPath}/profile/myMes" role="button"><s:message code="my_mes"/></a>
+                <br>
             </sec:authorize>
             <a class="btn btn-lg btn-danger ml-auto mr-auto" href="${pageContext.request.contextPath}/logout"
                role="button"><s:message code="logout"/> </a>

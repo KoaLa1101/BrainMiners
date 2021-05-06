@@ -43,4 +43,24 @@ public class MesController {
 
         return "redirect:/findEmployee";
     }
+
+    @PreAuthorize("hasAuthority('EMPLOYER')")
+    @GetMapping("/profile/myMes")
+    public String prepareMyMes(Model model, HttpServletRequest request){
+        User myUser = (User) request.getSession().getAttribute("myAcc");
+        model.addAttribute("allMyMes", myUser.getMessageList());
+        return "showMes";
+    }
+
+    @PreAuthorize("hasAuthority('EMPLOYER')")
+    @PostMapping("/profile/myMes")
+    public String saveMes(@RequestParam(required = true, defaultValue = "") int mesId, @RequestParam(required = true, defaultValue = "") String action, HttpServletRequest request){
+        User myUser = (User) request.getSession().getAttribute("myAcc");
+        if(action.equals("delete")){
+            myUser.getMessageList().remove(mesService.findById(mesId));
+            mesService.removeMes(mesService.findById(mesId));
+            userService.updateUser(myUser);
+        }
+        return "redirect:/profile/myMes";
+    }
 }

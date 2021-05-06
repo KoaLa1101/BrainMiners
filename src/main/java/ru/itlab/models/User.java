@@ -2,6 +2,7 @@ package ru.itlab.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,7 +30,7 @@ public class User implements UserDetails {
     private String username;
     private List<Message> messageList;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "messages", nullable = true)
     @JoinTable(name = "user_messages", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "message_id", referencedColumnName = "id") )
