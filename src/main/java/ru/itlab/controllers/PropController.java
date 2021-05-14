@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import ru.itlab.annotations.MyLog;
+import ru.itlab.converter.PropsConverter;
 import ru.itlab.models.Properties;
 import ru.itlab.models.User;
 import ru.itlab.repositories.UserRepository;
@@ -35,8 +36,8 @@ public class PropController {
 
     @GetMapping("/profile/myProps")
     public String showPropForm(Model model, HttpServletRequest request) {
-        if(request.getSession().getAttribute("myProps")!=null)
-            model.addAttribute("propForm",request.getSession().getAttribute("myProps"));
+        if (request.getSession().getAttribute("myProps") != null)
+            model.addAttribute("propForm", request.getSession().getAttribute("myProps"));
         else
             model.addAttribute("propForm", new Properties());
 
@@ -61,7 +62,7 @@ public class PropController {
 
     @PreAuthorize("hasAuthority('EMPLOYEE')")
     @GetMapping("/findEmployee")
-    public String prepareAllEmployee(Model model){
+    public String prepareAllEmployee(Model model) {
         User.Role role = User.Role.EMPLOYER;
         model.addAttribute("allEmployee", userService.allUserByRole(role));
         model.addAttribute("filter", new Properties());
@@ -71,20 +72,15 @@ public class PropController {
 
     @PreAuthorize("hasAuthority('EMPLOYEE')")
     @PostMapping("/findEmployee")
-    public String filterEmployee(@ModelAttribute("filter") Properties filter, Model model, HttpServletRequest request){
-        Properties props = new Properties();
-        if(!filter.getBusyness().equals("_")) props.setBusyness(filter.getBusyness());
-        if(!filter.getEducation().equals("_")) props.setEducation(filter.getEducation());
-        if(!filter.getExperience().equals("_")) props.setExperience(filter.getExperience());
-        if(!filter.getLevelOfEnglish().equals("_")) props.setLevelOfEnglish(filter.getLevelOfEnglish());
-        if(!filter.getSalaryWork().equals("_")) props.setSalaryWork(filter.getSalaryWork());
-        if(!filter.getSphereOfWork().equals("_")) props.setSphereOfWork(filter.getSphereOfWork());
-        props.setUser((User) request.getSession().getAttribute("myAcc"));
-        System.out.println( props.toString());
-        model.addAttribute("allEmployee", userService.findAllByProperties(props));
+    public String filterEmployee(@ModelAttribute("filter") Properties filter, Model model, HttpServletRequest request) {
+        PropsConverter propsConverter = new PropsConverter();
+        Properties props = propsConverter.convert(filter);
+        if (props != null) {
+            props.setUser((User) request.getSession().getAttribute("myAcc"));
+            model.addAttribute("allEmployee", userService.findAllByProperties(props));
+        }
         return "findEmployee";
     }
-
 
 
 }
