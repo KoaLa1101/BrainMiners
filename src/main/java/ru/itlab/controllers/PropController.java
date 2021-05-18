@@ -45,7 +45,7 @@ public class PropController {
     }
 
     @PostMapping("/profile/myProps")
-    public String myProps(@ModelAttribute("propForm") @Valid Properties propForm, Model model, HttpServletRequest request) {
+    public String myProps(@ModelAttribute("propForm") @Valid Properties propForm, HttpServletRequest request) {
         User myAcc = (User) request.getSession().getAttribute("myAcc");
         propForm.setId(myAcc.getId());
 

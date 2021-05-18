@@ -129,15 +129,9 @@ public class MyController {
         return "redirect:/profile";
     }
 
-    @RequestMapping("/login/oauth")
-    public String showCode(@RequestParam String code, ModelMap map) {
-        map.put("code", code);
-        return "showCode";
-    }
-
 
     @RequestMapping("/users")
-    public String showError(HttpServletResponse response){
+    public String showError(){
 
         return ("status:" + /*response.getStatus()*/ "404");
     }

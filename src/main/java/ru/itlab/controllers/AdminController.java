@@ -3,7 +3,6 @@ package ru.itlab.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,7 @@ public class AdminController {
     @GetMapping("/admin")
     @PreAuthorize("hasAuthority('ADMIN')")
     //🤪🤪🤪
-    public String userList(Model model, Authentication authentication) {
+    public String userList(Model model) {
         model.addAttribute("allUsers", userService.allUsers());
         return "admin";
     }

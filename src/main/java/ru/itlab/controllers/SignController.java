@@ -1,5 +1,7 @@
 package ru.itlab.controllers;
 
+import com.github.scribejava.core.builder.ServiceBuilder;
+import com.github.scribejava.core.oauth.OAuth20Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -52,5 +54,18 @@ public class SignController {
     public String showSignInForm(@ModelAttribute("loginForm") LoginForm loginForm) {
 
         return "signIn";
+    }
+
+    @RequestMapping("/login/oauthHH")
+    @PreAuthorize("isAnonymous()")
+    public String loginWithHH(){
+        OAuth20Service service = new ServiceBuilder()
+                .apiKey(clientId)
+                .apiSecret(clientSecret)
+                .callback("http://your.site.com/callback")
+                .grantType("authorization_code")
+                .build(HHApi.instance());
+
+        return "index";
     }
 }
