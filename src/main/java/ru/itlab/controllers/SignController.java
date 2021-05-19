@@ -1,22 +1,25 @@
 package ru.itlab.controllers;
 
-import com.github.scribejava.core.builder.ServiceBuilder;
-import com.github.scribejava.core.oauth.OAuth20Service;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import ru.itlab.converter.OauthConverter;
 import ru.itlab.models.User;
+import ru.itlab.models.forms.HhForm;
 import ru.itlab.models.forms.LoginForm;
+import ru.itlab.others.Hh;
 import ru.itlab.services.UserService;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
+import static ru.itlab.others.Hh.hh;
 
 
 /*🥰🥵*/
@@ -35,7 +38,7 @@ public class SignController {
 
     @PostMapping("/signUp")
     public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
-        log.info(userForm +"Пришедшая форма");
+        log.info(userForm + "Пришедшая форма");
         if (bindingResult.hasErrors()) return "signUp";
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
             model.addAttribute("passwordError", "Passwords are not equals");
@@ -56,16 +59,22 @@ public class SignController {
         return "signIn";
     }
 
-   /* @RequestMapping("/login/oauthHH")
-    @PreAuthorize("isAnonymous()")
-    public String loginWithHH(){
-        OAuth20Service service = new ServiceBuilder()
-                .apiKey(clientId)
-                .apiSecret(clientSecret)
-                .callback("http://your.site.com/callback")
-                .grantType("authorization_code")
-                .build(HHApi.instance());
+    @GetMapping("/oauth")
+    public String loginWithHH(@RequestParam("code") String code, Model model) throws IOException, ExecutionException, InterruptedException, OAuthSystemException {
 
-        return "index";
-    }*/
+        HhForm hhForm = hh.getOauthUser(code);
+        model.addAttribute("partOfHhForm", hhForm);
+        model.addAttribute("hhForm", new HhForm());
+        return "oauthForm";
+    }
+
+    @PostMapping("/oauth")
+    public String signUpOauth( @ModelAttribute("hhForm")HhForm hhForm){
+        log.info(hhForm.getFirst_name());
+        OauthConverter oauthConverter = new OauthConverter();
+        User user = oauthConverter.convert(hhForm);
+        userService.saveUser(user);
+
+        return "redirect:/";
+    }
 }

@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/change", "/signUp", "/admin", "/login/oauth", "/restUsers", "/restUsersPost").permitAll()
+                .antMatchers("/", "/change", "/signUp", "/admin", "/login/oauth", "/oauth", "/restUsers", "/restUsersPost").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
                 .permitAll()
                 .and()
-                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google").defaultSuccessUrl("/authByGoogle")
+                .oauth2Login().loginProcessingUrl("/login/oauth2/code/google").defaultSuccessUrl("/")
                 .and().csrf().disable();
     }
 
