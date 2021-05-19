@@ -12,6 +12,7 @@
 <head>
     <meta charset="utf-8">
     <title>ADMIN OF ACCS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -24,22 +25,43 @@
         <th>Roles</th>
         </thead>
         <c:forEach items="${allUsers}" var="user">
-            <tr>
+            <tr id="idRow${user.id}">
                 <td>${user.id}</td>
                 <td>${user.username}</td>
                 <td>${user.password}</td>
                 <td>${user.role}</td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/admin" method="post">
-                        <input type="hidden" name="userId" value="${user.id}"/>
-                        <input type="hidden" name="action" value="delete"/>
-                        <button type="submit">Delete</button>
-                    </form>
+                    <button type="submit" onclick="forBtn(${user.id})">Delete</button>
                 </td>
             </tr>
         </c:forEach>
     </table>
-    <a href="/"><s:message code="home"/> </a>
+    <a class="btn btn-outline-info" href="/"><s:message code="home"/> </a>
 </div>
+<script>
+    function forBtn(id){
+        $.ajax({
+            url: "${pageContext.request.contextPath}/admin?userId=" + id,
+            method: 'POST',
+            cache: false,
+            type: "text/json",
+
+            success: function (res) {
+                console.log(res);
+                $("#idRow"+id).html("");
+            },
+            error: function (res) {
+
+            }
+        })
+            .always(function () {
+
+            })
+            .then(function () {
+
+            });
+    }
+
+</script>
 </body>
 </html>

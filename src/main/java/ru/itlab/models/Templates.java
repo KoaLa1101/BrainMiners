@@ -19,7 +19,7 @@ public class Templates {
     private String mes;
     private List<User> userList;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     public List<User> getUserList(){ return userList;}
 
     public void setUserList(List<User> userList) {this.userList = userList;}

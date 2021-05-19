@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ru.itlab.services.UserService;
 
 @Controller
@@ -26,12 +27,10 @@ public class AdminController {
 
     @PostMapping("/admin")
     @PreAuthorize("hasAuthority('ADMIN')")
+    @ResponseBody
     //🤪🤪🤪
-    public String deleteUser(@RequestParam(required = true, defaultValue = "") int userId, @RequestParam(required = true, defaultValue = "") String action, Model model) {
-        if (action.equals("delete")) {
-            userService.deleteUser(userId);
-        }
-        return "redirect:/admin";
+    public boolean deleteUser(@RequestParam(required = true, defaultValue = "") int userId) {
+       return userService.deleteUser(userId);
     }
 }
 
