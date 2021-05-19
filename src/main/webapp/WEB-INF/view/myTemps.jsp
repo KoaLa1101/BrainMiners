@@ -10,11 +10,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title><s:message code="profile"/></title>
+    <title>BrainMiners</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <script src="https://cdn.tiny.cloud/1/xh32za4tf46uoqx53xou51b07063vnglx7te4mq2jyxky1jd/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
 </head>
 <body>
 
@@ -39,52 +42,38 @@
                 </div>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/profile"> Profile </a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/profile">
+                    Profile
+                </a>
             </sec:authorize>
             <a class="btn btn-outline-dark my-3 ml-3" href='${s:mvcUrl("MC#change").arg(0, "ru_RU").build()}'>Eng</a>
             <a class="btn btn-outline-dark my-3 ml-3" href='${s:mvcUrl("MC#change").arg(0, "en_US").build()}'>Рус</a>
         </div>
     </div>
 </nav>
+<!-- Main -->
+<main>
+    <h3 class="ml-3">Templates of ${myAcc.username}</h3>
+    <div class="mt-3">
+        <c:if test="${empty myTemps}"><br><br><h2>You haven't any templates</h2> </c:if>
+        <c:if test="${not empty myTemps}">
+            <c:forEach items="${myTemps}" var="temp">
+                <div class="mr-xl-5 ml-3 mt-3" style="border: black solid 1px">
+                    <p style="background-color: lightgray"> ${temp.mes} </p>
+                    <c:forEach items="${temp.userList}" var="usr">
+                        <p style="background-color: lightblue">Edited by: ${usr.username}</p>
+                    </c:forEach>
 
-<main class="vh-100 bg-gradient-primary" style="background-color: darkblue">
-    <div class="d-flex  align-items-center justify-content-center ml-3 mr-3">
-        <div class="vh-100 d-flex flex-column align-items-center justify-content-center h4"
-             style="background-color: aliceblue; width: 20%; ">
-            <p class="ml-3 mr-3"><s:message code="firstName"/>: <br> ${myAcc.firstName} <br></p>
-            <p class="ml-3 mr-3"><s:message code="lastName"/>: <br> ${myAcc.lastName} <br></p>
-            <p class="ml-3 mr-3"><s:message code="username"/>: <br> ${myAcc.username} <br></p>
-            <p class="ml-3 mr-3"><s:message code="role"/>: <br> ${myAcc.role} <br></p>
-            <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-               href="${pageContext.request.contextPath}/profile/edit" role="button"><s:message code="editProfile"/> </a>
-            <br>
-            <sec:authorize access="hasAuthority('EMPLOYER')">
-                <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/myProps" role="button"><s:message
-                        code="props"/> </a>
-                <br>
-                <a class="btn btn-outline-info btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/myMes" role="button"><s:message code="my_mes"/></a>
-                <br>
-            </sec:authorize>
+                </div>
+            </c:forEach>
 
-            <sec:authorize access="hasAuthority('EMPLOYEE')">
-                <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/createNewTemp" role="button"><s:message
-                        code="temp"/> </a>
-                <br>
-                <a class="btn btn-outline-info btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/myTemps" role="button"><s:message code="my_temps"/></a>
-                <br>
-            </sec:authorize>
+        </c:if>
 
-            <a class="btn btn-lg btn-danger ml-auto mr-auto" href="${pageContext.request.contextPath}/logout"
-               role="button"><s:message code="logout"/> </a>
-
-        </div>
     </div>
-</main>
+    <br>
+    <a class="btn btn-outline-primary ml-3" href="/"><s:message code="home"/> </a>
 
+</main>
 <footer class="page-footer font-small blue fixed-bottom ml-3 mr-3"
         style="position: absolute; background-color: cornflowerblue">
 

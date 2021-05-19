@@ -56,7 +56,7 @@ public class SignController {
         return "signIn";
     }
 
-    @RequestMapping("/login/oauthHH")
+   /* @RequestMapping("/login/oauthHH")
     @PreAuthorize("isAnonymous()")
     public String loginWithHH(){
         OAuth20Service service = new ServiceBuilder()
@@ -67,5 +67,5 @@ public class SignController {
                 .build(HHApi.instance());
 
         return "index";
-    }
+    }*/
 }

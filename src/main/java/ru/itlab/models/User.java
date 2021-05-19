@@ -29,9 +29,16 @@ public class User implements UserDetails {
     private String passwordConfirm;
     private String username;
     private List<Message> messageList;
+    private List<Templates> templatesList;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_templates", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "templates_id", referencedColumnName = "id"))
+    public List<Templates> getTemplatesList() {return templatesList;}
+
+    public void setTemplatesList(List<Templates> templatesList) {this.templatesList = templatesList;}
 
     @OneToMany(cascade = CascadeType.ALL)
-    @Column(name = "messages", nullable = true)
     @JoinTable(name = "user_messages", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "message_id", referencedColumnName = "id") )
     public List<Message> getMessageList() {

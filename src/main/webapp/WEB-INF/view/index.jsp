@@ -19,7 +19,7 @@
 <body >
 
 <!--navigation-->
-<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-image: url('../img/ForTatar.jpg')">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
     <div class="container-fluid" style="background-color: aliceblue">
         <a href="${pageContext.request.contextPath}/" class="navbar-brand ml-3" style="color: blue"><s:message
                 code="header"/></a>

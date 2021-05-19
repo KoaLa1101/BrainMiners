@@ -1,8 +1,10 @@
 package ru.itlab.converter;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 import ru.itlab.models.Properties;
 
+@Component
 public class PropsConverter implements Converter<Properties, Properties> {
     @Override
     public Properties convert(Properties filter) {

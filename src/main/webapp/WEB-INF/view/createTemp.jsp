@@ -10,11 +10,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title><s:message code="profile"/></title>
+    <title>BrainMiners</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <script src="https://cdn.tiny.cloud/1/xh32za4tf46uoqx53xou51b07063vnglx7te4mq2jyxky1jd/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
 </head>
 <body>
 
@@ -39,52 +42,39 @@
                 </div>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/profile"> Profile </a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/profile">
+                    Profile
+                </a>
             </sec:authorize>
             <a class="btn btn-outline-dark my-3 ml-3" href='${s:mvcUrl("MC#change").arg(0, "ru_RU").build()}'>Eng</a>
             <a class="btn btn-outline-dark my-3 ml-3" href='${s:mvcUrl("MC#change").arg(0, "en_US").build()}'>Рус</a>
         </div>
     </div>
 </nav>
+<!-- Main -->
+<main>
+    <div class="text-center ml-3 my-3">
+        <form:form method="POST" modelAttribute="newTemp">
+            <h2>Let's create template for other Employee </h2>
+            <br><br>
+            <s:message code="valueChange"/>
+            <form:textarea path="mes" cssStyle="width: 100%; height: 600px"/>
+            <script>
+                tinymce.init({
+                    selector: 'textarea',
+                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                    toolbar_mode: 'floating',
+                    tinycomments_author: 'Koala1101'
+                });
+            </script>
+            <br><br>
+            <form:input path="userList" type="text" hidden="hidden" value="${myAcc.id}"/>
 
-<main class="vh-100 bg-gradient-primary" style="background-color: darkblue">
-    <div class="d-flex  align-items-center justify-content-center ml-3 mr-3">
-        <div class="vh-100 d-flex flex-column align-items-center justify-content-center h4"
-             style="background-color: aliceblue; width: 20%; ">
-            <p class="ml-3 mr-3"><s:message code="firstName"/>: <br> ${myAcc.firstName} <br></p>
-            <p class="ml-3 mr-3"><s:message code="lastName"/>: <br> ${myAcc.lastName} <br></p>
-            <p class="ml-3 mr-3"><s:message code="username"/>: <br> ${myAcc.username} <br></p>
-            <p class="ml-3 mr-3"><s:message code="role"/>: <br> ${myAcc.role} <br></p>
-            <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-               href="${pageContext.request.contextPath}/profile/edit" role="button"><s:message code="editProfile"/> </a>
-            <br>
-            <sec:authorize access="hasAuthority('EMPLOYER')">
-                <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/myProps" role="button"><s:message
-                        code="props"/> </a>
-                <br>
-                <a class="btn btn-outline-info btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/myMes" role="button"><s:message code="my_mes"/></a>
-                <br>
-            </sec:authorize>
-
-            <sec:authorize access="hasAuthority('EMPLOYEE')">
-                <a class="btn btn-link btn-outline-primary btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/createNewTemp" role="button"><s:message
-                        code="temp"/> </a>
-                <br>
-                <a class="btn btn-outline-info btn-lg ml-auto mr-auto"
-                   href="${pageContext.request.contextPath}/profile/myTemps" role="button"><s:message code="my_temps"/></a>
-                <br>
-            </sec:authorize>
-
-            <a class="btn btn-lg btn-danger ml-auto mr-auto" href="${pageContext.request.contextPath}/logout"
-               role="button"><s:message code="logout"/> </a>
-
-        </div>
+            <button class="btn btn-outline-success" type="submit"><s:message code="submit"/></button>
+        </form:form>
     </div>
 </main>
-
 <footer class="page-footer font-small blue fixed-bottom ml-3 mr-3"
         style="position: absolute; background-color: cornflowerblue">
 

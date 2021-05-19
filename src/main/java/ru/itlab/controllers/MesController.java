@@ -27,24 +27,25 @@ public class MesController {
     public String prepareNewMes(Model model){
         model.addAttribute("newMes", new Message());
 
-        return "CreateNewMes";
+        return "createNewMes";
 
     }
 
     @PreAuthorize("hasAuthority('EMPLOYEE')")
     @RequestMapping("/findEmployee/newMes")
-    public String saveMes(@RequestParam(required = true, defaultValue = "") int userId, @RequestParam(required = true, defaultValue = "") String action, @ModelAttribute("newMes") Message newMes){
+    public String saveMes(@RequestParam(required = true, defaultValue = "") int userId, @RequestParam(required = true, defaultValue = "") String action, @ModelAttribute("newMes") Message newMes, HttpServletRequest request){
         User myAcc = userService.findUserById(userId);
-        log.info(newMes.getMes());
+        log.info(String.valueOf(userId));
         if(action.equals("create")) mesService.saveMes(newMes);
         myAcc.getMessageList().add(newMes);
-        userService.updateUser(myAcc);
+        request.getSession().setAttribute("myAcc", myAcc);
+
 
         return "redirect:/findEmployee";
     }
 
     @PreAuthorize("hasAuthority('EMPLOYER')")
-    @GetMapping("/profile/myMes")
+    @RequestMapping("/profile/myMes")
     public String prepareMyMes(Model model, HttpServletRequest request){
         User myUser = (User) request.getSession().getAttribute("myAcc");
         model.addAttribute("allMyMes", myUser.getMessageList());
