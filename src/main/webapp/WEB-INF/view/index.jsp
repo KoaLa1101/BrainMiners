@@ -49,6 +49,7 @@
 
 <!--Main-->
 <main>
+    <div style='background-image: url("${pageContext.request.contextPath}/img/background.png"); width: 100%; height: 100%'>
 
     <sec:authorize access="isAuthenticated()">
         <h2>Hello ${myAcc.firstName} ${myAcc.lastName} </h2>
@@ -57,7 +58,7 @@
         </sec:authorize>
         <a class="btn btn-outline-danger my-3 ml-3" href='${pageContext.request.contextPath}/logout'>logout</a>
     </sec:authorize>
-
+    </div>
 
 
 </main>

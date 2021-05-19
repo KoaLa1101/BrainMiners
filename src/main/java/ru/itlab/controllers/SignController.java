@@ -70,7 +70,6 @@ public class SignController {
 
     @PostMapping("/oauth")
     public String signUpOauth( @ModelAttribute("hhForm")HhForm hhForm){
-        log.info(hhForm.getFirst_name());
         OauthConverter oauthConverter = new OauthConverter();
         User user = oauthConverter.convert(hhForm);
         userService.saveUser(user);

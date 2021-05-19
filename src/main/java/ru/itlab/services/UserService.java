@@ -79,4 +79,8 @@ public class UserService implements UserDetailsService {
     public List<Message> allMes(User user){
         return user.getMessageList();
     }
+
+    public int updateProps(int properties_id, int usr_id){
+        return userRepository.updateProps(properties_id, usr_id);
+    }
 }
