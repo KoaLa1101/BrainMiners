@@ -37,4 +37,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query(nativeQuery = true, value = "select * from usr inner join properties on usr.id = properties.id where (properties.id=:id or :id is null or :id='_') and (properties.education=:education or :education is null or :education='_') and (properties.busyness=:busyness or :busyness is null or :busyness='_') and (properties.experience=:experience or :experience is null or :experience='_') and (properties.level_of_english=:levelOfEnglish or :levelOfEnglish is null or :levelOfEnglish='_')  and (properties.salary_work=:salaryWork or :salaryWork is null or :salaryWork='_') and (properties.sphere_of_work=:sphereOfWork or :sphereOfWork is null or :sphereOfWork='_')")
     List<User> allUserByProps(@Param("id") int id, @Param("education") String education, @Param("busyness") String busyness, @Param("experience") String experience, @Param("levelOfEnglish") String levelOfEnglish, @Param("salaryWork") String salaryWork, @Param("sphereOfWork") String sphereOfWork);
+
+    //@Query(nativeQuery = true, value = "select user_list_id, count (templates_id) from templates_user_list group by user_list_id order by count(templates_id)")
+
 }

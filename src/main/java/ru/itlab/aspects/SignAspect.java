@@ -34,6 +34,13 @@ public class SignAspect {
         System.out.println(joinPoint.getSignature().getName() + result);
     }
 
+    @AfterReturning(pointcut = "execution(* ru.itlab.controllers.MyController.change(..))", returning = "result")
+    public void logAfterChangeLocale(JoinPoint joinPoint, Object result){
+        System.out.println("Logs after_returning " + joinPoint.getSignature().getName() + " locale");
+        System.out.println();
+        System.out.println(joinPoint.getSignature().getName() + result);
+    }
+
     /*@Around("@annotation(ru.itlab.annotations.MyLog)")
         public Object logAfterProfile(ProceedingJoinPoint pjp) throws Throwable {
         Principal principal = SecurityContextHolder.getContext().getAuthentication();

@@ -9,12 +9,16 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import ru.itlab.others.MyViewResolver;
+
+import java.util.Locale;
 
 @EnableWebMvc
 @Configuration
@@ -42,6 +46,14 @@ public class WebConfig implements WebMvcConfigurer {
         res.setDefaultEncoding("UTF-8");
         res.setUseCodeAsDefaultMessage(false);
         return res;
+    }
+
+    @Bean
+    public LocaleResolver localeResolver() {
+        CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+        localeResolver.setCookieName("lang");
+        localeResolver.setDefaultLocale(Locale.US);
+        return localeResolver;
     }
 
    /* @Bean

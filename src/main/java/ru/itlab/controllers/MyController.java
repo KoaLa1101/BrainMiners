@@ -2,6 +2,7 @@ package ru.itlab.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -34,6 +35,8 @@ public class MyController {
     private LocaleResolver localeResolver;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    private MessageSourceAccessor msa;
 
     @RequestMapping("/")
     public String defaultPath(Model model, @AuthenticationPrincipal User user, HttpServletRequest request) {
