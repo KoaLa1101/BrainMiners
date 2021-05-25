@@ -68,7 +68,7 @@
         </div>
         <div>
             <button class="btn btn-outline-primary my-3" type="submit"><s:message code="submit"/></button>
-            <a href="${pageContext.request.contextPath}/login/oauth2/code/google" class="btn btn-outline-primary my-3">Log with goole</a>
+            <%--<a href="${pageContext.request.contextPath}/login/oauth2/code/google" class="btn btn-outline-primary my-3">Log with goole</a>--%>
             <a href="https://hh.ru/oauth/authorize?response_type=code&client_id=UNK1I7U5K9O3BNEHP58AC3BLRHKASFH9I7PANMBVV00A74CUPSN4GMSA81VQ5VKC&redirect_uri=http://localhost:8080/oauth" class="btn btn-outline-primary my-3">Log with hh.ru</a>
         </div>
     </form:form>
