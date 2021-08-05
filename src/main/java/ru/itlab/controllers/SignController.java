@@ -1,5 +1,7 @@
 package ru.itlab.controllers;
 
+import com.vk.api.sdk.exceptions.ApiException;
+import com.vk.api.sdk.exceptions.ClientException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import ru.itlab.models.User;
 import ru.itlab.models.forms.HhForm;
 import ru.itlab.models.forms.LoginForm;
 import ru.itlab.others.Hh;
+import ru.itlab.others.Vk_auth;
 import ru.itlab.services.UserService;
 
 import javax.validation.Valid;
@@ -75,5 +78,18 @@ public class SignController {
         userService.saveUser(user);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/oauthVk")
+    public String loginWithVk(@RequestParam("code") String code, Model model){
+        try {
+            Vk_auth vk_auth = new Vk_auth(code);
+            String str = vk_auth.getToken();
+            log.info("str: " + str);
+        } catch (ClientException | ApiException e) {
+            e.printStackTrace();
+        }
+
+        return "oauthFrom";
     }
 }

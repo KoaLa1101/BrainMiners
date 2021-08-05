@@ -30,6 +30,7 @@ public class User implements UserDetails {
     private String username;
     private List<Message> messageList;
     private List<Templates> templatesList;
+    private String vk_token;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_templates", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
@@ -142,6 +143,12 @@ public class User implements UserDetails {
     }
 
     public void setUsername(String username){ this.username = username;}
+
+    @Basic
+    @Column(name = "vk_token", length = 10000)
+    public String getVk_token() {return vk_token;}
+
+    public void setVk_token(String vk_token) {this.vk_token = vk_token;}
 
     @Override
     public boolean equals(Object o) {
