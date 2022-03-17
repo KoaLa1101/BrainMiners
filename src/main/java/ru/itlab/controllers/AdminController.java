@@ -28,7 +28,7 @@ public class AdminController {
     @PostMapping("/admin")
     @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseBody
-    //🤪🤪🤪
+    //🤪🤪
     public boolean deleteUser(@RequestParam(required = true, defaultValue = "") int userId) {
        return userService.deleteUser(userId);
     }
