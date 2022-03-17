@@ -37,7 +37,7 @@ public class BrainMinerApplicationTests {
             .build();
 
     private Message message = Message.builder()
-            .mes("ASDJKASDJASKDJAS")
+            .mes("ASDJKASDJASKDAS")
             .id(0)
             .build();
 
