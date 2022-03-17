@@ -19,7 +19,7 @@ jobs:
           postgres:
             image: postgres
             env:
-              POSTGRES_USER: ${{ secrets.PSQL_USER }}
+              POSTGRES_USER: ${{ secrets.PSQL_USERNAME }}
               POSTGRES_PASSWORD: ${{ secrets.PSQL_PASSWORD }}
               POSTGRES_DB: medok
             ports:
