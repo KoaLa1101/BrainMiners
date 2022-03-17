@@ -9,6 +9,7 @@ import ru.itlab.models.Message;
 import ru.itlab.models.Properties;
 import ru.itlab.models.User;
 import ru.itlab.repositories.UserRepository;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -22,10 +23,8 @@ public class UserService implements UserDetailsService {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+    public User loadUserByUsername(String username) {
         User user = userRepository.findByUsername(username);
-
-        //if(user == null) throw new UsernameNotFoundException("User not found");
 
         return user;
     }
@@ -39,48 +38,48 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public boolean saveUser(User user){
+    public boolean saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
-        if(userFromDB != null) return false;
+        if (userFromDB != null) return false;
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
     }
 
 
-    public boolean deleteUser (int userId) {
-        if(userRepository.findById(userId).isPresent()){
+    public boolean deleteUser(int userId) {
+        if (userRepository.findById(userId).isPresent()) {
             userRepository.deleteById(userId);
             return true;
         }
         return false;
     }
 
-    public User.Role getRole(User user){
+    public User.Role getRole(User user) {
         return user.getRole();
     }
 
-    public int updateUser(User user){
+    public int updateUser(User user) {
         return userRepository.updateUsr(user.getFirstName(), user.getLastName(), user.getPassword(), user.getPasswordConfirm(), user.getUsername(), user.getId());
     }
 
-    public User showUser(int userId){
-       return userRepository.showUser(userId);
+    public User showUser(int userId) {
+        return userRepository.showUser(userId);
     }
 
-    public List<User> allUserByRole(User.Role role){
+    public List<User> allUserByRole(User.Role role) {
         return userRepository.findAllByRole(role);
     }
 
-    public List<User> findAllByProperties(Properties properties){
+    public List<User> findAllByProperties(Properties properties) {
         return userRepository.allUserByProps(properties.getId(), properties.getEducation(), properties.getBusyness(), properties.getExperience(), properties.getLevelOfEnglish(), properties.getSalaryWork(), properties.getSphereOfWork());
     }
 
-    public List<Message> allMes(User user){
+    public List<Message> allMes(User user) {
         return user.getMessageList();
     }
 
-    public int updateProps(int properties_id, int usr_id){
+    public int updateProps(int properties_id, int usr_id) {
         return userRepository.updateProps(properties_id, usr_id);
     }
 }
