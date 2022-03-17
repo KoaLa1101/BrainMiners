@@ -58,7 +58,6 @@ public class SignController {
     @RequestMapping("/signIn")
     @PreAuthorize("isAnonymous()")
     public String showSignInForm(@ModelAttribute("loginForm") LoginForm loginForm) {
-
         return "signIn";
     }
 
