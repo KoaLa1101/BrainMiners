@@ -2,11 +2,17 @@ version: "3"
 networks:
   koala_network:
 
+volumes:
+  minerVol:
+
+
 services:
   brain_miners:
     networks:
       - koala_network
     image: brain_miners:latest
+    volumes:
+      - minerVol:/logs/
     ports:
       - "8081:8081"
     depends_on:
@@ -30,24 +36,25 @@ services:
     image: grafana/promtail:2.1.0
     container_name: monitoring-promtail
     volumes:
+#      - ../logs/monitoring.log:/var/log/monitoring.log
       - ./promtail/promtail-docker-config.yaml:/etc/promtail/docker-config.yaml
-      - ../logs/monitoring.log:/var/log/monitoring.log
+      - minerVol:/var/log/
     command: "--config.file=/etc/promtail/docker-config.yaml"
-  loki:
-    image: grafana/loki:2.1.0
-    container_name: monitoring-loki
-    command: -config.file=/etc/loki/local-config.yaml
-    ports:
-      - "3100:3100"
-  grafana:
-    image: grafana/grafana:8.2.6
-    container_name: monitoring-grafana
-    volumes:
-      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
-      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
-      - ./grafana/example.json:/var/lib/grafana/dashboards/example.json
-    ports:
-      - "3000:3000"
-    depends_on:
-      - loki
+#  loki:
+#    image: grafana/loki:2.1.0
+#    container_name: monitoring-loki
+#    command: -config.file=/etc/loki/local-config.yaml
+#    ports:
+#      - "3100:3100"
+#  grafana:
+#    image: grafana/grafana:8.2.6
+#    container_name: monitoring-grafana
+#    volumes:
+#      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+#      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+#      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
+#      - ./grafana/example.json:/var/lib/grafana/dashboards/example.json
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - loki
