@@ -1,7 +1,10 @@
 package ru.itlab;
 
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.itlab.models.Message;
@@ -13,10 +16,15 @@ import ru.itlab.services.PropService;
 import ru.itlab.services.TempService;
 import ru.itlab.services.UserService;
 
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureEmbeddedDatabase(beanName = "dataSource")
 @DisplayName("BrainMiners is working when")
 public class BrainMinerApplicationTests {
+
+
+    private static final Logger LOGGER = LogManager.getLogger(BrainMinerApplication.class);
+
     @Autowired
     private MesService mesService;
     @Autowired
