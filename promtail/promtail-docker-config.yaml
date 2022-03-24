@@ -1,5 +1,5 @@
 server:
-  http_listen_port: 9080
+  http_listen_port: 0
   grpc_listen_port: 0
 
 positions:
@@ -22,4 +22,3 @@ scrape_configs:
             level: level
       - labels:
           level:
-

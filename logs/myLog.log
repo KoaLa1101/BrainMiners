@@ -1,620 +1,77 @@
-2022-03-23 21:01:19.640  INFO 22700 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 22700 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 21:01:19.646  INFO 22700 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 21:01:19.708  INFO 22700 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 21:01:19.709  INFO 22700 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 21:01:20.425  INFO 22700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:01:20.425  INFO 22700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 21:01:20.462  INFO 22700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 4 JPA repository interfaces.
-2022-03-23 21:01:20.704  INFO 22700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:01:20.705  INFO 22700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 21:01:20.715  INFO 22700 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:20.716  INFO 22700 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:20.717  INFO 22700 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:20.718  INFO 22700 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:20.718  INFO 22700 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
-2022-03-23 21:01:21.104  INFO 22700 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7eb18d1f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:21.105  INFO 22700 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:21.109  INFO 22700 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:21.112  INFO 22700 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:21.572  INFO 22700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-23 21:01:21.578  INFO 22700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 21:01:21.578  INFO 22700 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 21:01:21.851  INFO 22700 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 21:01:21.858  INFO 22700 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 21:01:21.858  INFO 22700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2148 ms
-2022-03-23 21:01:22.069  INFO 22700 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-03-23 21:01:22.108  INFO 22700 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-03-23 21:01:22.204  INFO 22700 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-03-23 21:01:22.285  INFO 22700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 21:01:22.527  INFO 22700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 21:01:22.540  INFO 22700 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-03-23 21:01:23.320  INFO 22700 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-03-23 21:01:23.327  INFO 22700 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:01:23.370  INFO 22700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 21:01:23.416  WARN 22700 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 21:01:24.150  INFO 22700 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1caca70b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d98a080, org.springframework.security.web.header.HeaderWriterFilter@5f0bc813, org.springframework.security.web.authentication.logout.LogoutFilter@498774f1, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@d9a1fe9, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@536768de, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2ed577fd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ac9e1f1, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4afa2149, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18831641, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35885923, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a5dd845, org.springframework.security.web.session.SessionManagementFilter@3a0eaeca, org.springframework.security.web.access.ExceptionTranslationFilter@4dc0bc2e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@63ae63a5]
-2022-03-23 21:01:24.612  WARN 22700 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 21:01:24.634  INFO 22700 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-03-23 21:01:24.686  WARN 22700 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-2022-03-23 21:01:24.690  INFO 22700 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:01:24.694  INFO 22700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 21:01:24.706  INFO 22700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-23 21:01:24.709  INFO 22700 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-03-23 21:01:24.724  INFO 22700 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-03-23 21:01:24.739 ERROR 22700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.5.jar:5.3.5]
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
-	at ru.itlab.BrainMinerApplication.main(BrainMinerApplication.java:16) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:229) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.5.jar:5.3.5]
-	... 20 common frames omitted
-Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:244) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.4.4.jar:2.4.4]
-	... 22 common frames omitted
-Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1075) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:240) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 24 common frames omitted
-Caused by: java.net.BindException: Адрес уже используется
-	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:455) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:447) ~[na:na]
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[na:na]
-	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:300) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:253) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1204) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1290) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:614) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1072) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 26 common frames omitted
-
-2022-03-23 21:01:53.433  INFO 22900 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 22900 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 21:01:53.450  INFO 22900 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 21:01:53.679  INFO 22900 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 21:01:53.680  INFO 22900 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 21:01:55.144  INFO 22900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:01:55.145  INFO 22900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 21:01:55.238  INFO 22900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 4 JPA repository interfaces.
-2022-03-23 21:01:55.456  INFO 22900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:01:55.457  INFO 22900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 21:01:55.472  INFO 22900 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:55.473  INFO 22900 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:55.474  INFO 22900 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:55.476  INFO 22900 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:01:55.476  INFO 22900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
-2022-03-23 21:01:56.220  INFO 22900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1da438b2' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:56.225  INFO 22900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:56.231  INFO 22900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:56.235  INFO 22900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:01:57.194  INFO 22900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-23 21:01:57.228  INFO 22900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 21:01:57.229  INFO 22900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 21:01:57.873  INFO 22900 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 21:01:57.894  INFO 22900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 21:01:57.895  INFO 22900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4214 ms
-2022-03-23 21:01:58.189  INFO 22900 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-03-23 21:01:58.263  INFO 22900 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-03-23 21:01:58.479  INFO 22900 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-03-23 21:01:58.655  INFO 22900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 21:01:59.065  INFO 22900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 21:01:59.094  INFO 22900 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-03-23 21:02:00.311  INFO 22900 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-03-23 21:02:00.318  INFO 22900 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:02:00.355  INFO 22900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 21:02:00.390  WARN 22900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 21:02:01.194  INFO 22900 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31403d64, org.springframework.security.web.context.SecurityContextPersistenceFilter@50149669, org.springframework.security.web.header.HeaderWriterFilter@221c0e9f, org.springframework.security.web.authentication.logout.LogoutFilter@2d2d945e, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@29350853, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@33e0d857, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51d7a99a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@67da0c39, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@48145423, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1eae7e2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e8ea636, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41f9d1f7, org.springframework.security.web.session.SessionManagementFilter@60e1bfde, org.springframework.security.web.access.ExceptionTranslationFilter@5069840b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@509d410]
-2022-03-23 21:02:01.558  WARN 22900 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 21:02:01.610  WARN 22900 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-2022-03-23 21:02:01.613  INFO 22900 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:02:01.616  INFO 22900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 21:02:01.629  INFO 22900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-23 21:02:01.632  INFO 22900 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-03-23 21:02:01.643  INFO 22900 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-03-23 21:02:01.659 ERROR 22900 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.5.jar:5.3.5]
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
-	at ru.itlab.BrainMinerApplication.main(BrainMinerApplication.java:16) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:229) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.5.jar:5.3.5]
-	... 20 common frames omitted
-Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:244) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.4.4.jar:2.4.4]
-	... 22 common frames omitted
-Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1075) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:240) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 24 common frames omitted
-Caused by: java.net.BindException: Адрес уже используется
-	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:455) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:447) ~[na:na]
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[na:na]
-	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:300) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:253) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1204) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1290) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:614) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1072) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 26 common frames omitted
-
-2022-03-23 21:11:09.505  INFO 25361 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 25361 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 21:11:09.509  INFO 25361 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 21:11:09.580  INFO 25361 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 21:11:09.580  INFO 25361 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 21:11:10.226  INFO 25361 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:11:10.227  INFO 25361 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 21:11:10.274  INFO 25361 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
-2022-03-23 21:11:10.422  INFO 25361 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:11:10.423  INFO 25361 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 21:11:10.432  INFO 25361 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:11:10.433  INFO 25361 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:11:10.434  INFO 25361 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:11:10.435  INFO 25361 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:11:10.435  INFO 25361 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
-2022-03-23 21:11:10.823  INFO 25361 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@d31f1db' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:11:10.825  INFO 25361 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:11:10.830  INFO 25361 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:11:10.834  INFO 25361 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:11:11.365  INFO 25361 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-23 21:11:11.373  INFO 25361 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 21:11:11.373  INFO 25361 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 21:11:11.659  INFO 25361 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 21:11:11.666  INFO 25361 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 21:11:11.666  INFO 25361 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2084 ms
-2022-03-23 21:11:11.810  INFO 25361 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-03-23 21:11:11.851  INFO 25361 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-03-23 21:11:11.973  INFO 25361 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-03-23 21:11:12.085  INFO 25361 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 21:11:12.301  INFO 25361 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 21:11:12.315  INFO 25361 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-03-23 21:11:13.101  INFO 25361 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-03-23 21:11:13.108  INFO 25361 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:11:13.142  INFO 25361 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 21:11:13.180  WARN 25361 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 21:11:13.977  INFO 25361 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bcc1aef, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e8a73be, org.springframework.security.web.header.HeaderWriterFilter@7494c548, org.springframework.security.web.authentication.logout.LogoutFilter@5afe8237, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7c213689, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@30a1d3a3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@11629237, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@79ba29a2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5e6fab9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1150ecd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ae4b92f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e67a077, org.springframework.security.web.session.SessionManagementFilter@23c9ecf5, org.springframework.security.web.access.ExceptionTranslationFilter@79d86f06, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@327d688c]
-2022-03-23 21:11:14.311  WARN 25361 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 21:11:14.364  WARN 25361 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-2022-03-23 21:11:14.367  INFO 25361 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:11:14.371  INFO 25361 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 21:11:14.381  INFO 25361 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-23 21:11:14.383  INFO 25361 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-03-23 21:11:14.395  INFO 25361 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-03-23 21:11:14.411 ERROR 25361 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.5.jar:5.3.5]
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
-	at ru.itlab.BrainMinerApplication.main(BrainMinerApplication.java:16) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:229) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.5.jar:5.3.5]
-	... 20 common frames omitted
-Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:244) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.4.4.jar:2.4.4]
-	... 22 common frames omitted
-Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1075) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:240) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 24 common frames omitted
-Caused by: java.net.BindException: Адрес уже используется
-	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:455) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:447) ~[na:na]
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[na:na]
-	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:300) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:253) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1204) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1290) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:614) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1072) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 26 common frames omitted
-
-2022-03-23 21:18:01.709  INFO 26839 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 26839 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 21:18:01.713  INFO 26839 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 21:18:01.785  INFO 26839 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 21:18:01.786  INFO 26839 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 21:18:02.616  INFO 26839 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:18:02.617  INFO 26839 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 21:18:02.667  INFO 26839 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
-2022-03-23 21:18:02.826  INFO 26839 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:18:02.827  INFO 26839 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 21:18:02.846  INFO 26839 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:18:02.847  INFO 26839 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:18:02.847  INFO 26839 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:18:02.848  INFO 26839 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:18:02.849  INFO 26839 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 JDBC repository interfaces.
-2022-03-23 21:18:03.280  INFO 26839 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2607ffd4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:18:03.283  INFO 26839 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:18:03.288  INFO 26839 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:18:03.291  INFO 26839 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:18:03.836  INFO 26839 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-03-23 21:18:03.845  INFO 26839 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 21:18:03.846  INFO 26839 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 21:18:04.209  INFO 26839 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 21:18:04.219  INFO 26839 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 21:18:04.220  INFO 26839 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2433 ms
-2022-03-23 21:18:04.380  INFO 26839 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-03-23 21:18:04.438  INFO 26839 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-03-23 21:18:04.612  INFO 26839 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-03-23 21:18:04.707  INFO 26839 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 21:18:04.907  INFO 26839 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 21:18:04.921  INFO 26839 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-03-23 21:18:05.813  INFO 26839 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-03-23 21:18:05.820  INFO 26839 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:18:05.859  INFO 26839 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 21:18:05.897  WARN 26839 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 21:18:06.791  INFO 26839 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d4cd547, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ec8cd21, org.springframework.security.web.header.HeaderWriterFilter@6535f463, org.springframework.security.web.authentication.logout.LogoutFilter@79ba29a2, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@665c8a85, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4a4f984e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@62127225, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6a698259, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2cb1fbe5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48d83246, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@208a2f79, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50e8b409, org.springframework.security.web.session.SessionManagementFilter@6f8de283, org.springframework.security.web.access.ExceptionTranslationFilter@20665c15, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ce54801]
-2022-03-23 21:18:07.161  WARN 26839 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 21:18:07.248  INFO 26839 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-03-23 21:18:07.263  INFO 26839 --- [restartedMain] ru.itlab.BrainMinerApplication           : Started BrainMinerApplication in 6.096 seconds (JVM running for 7.314)
-2022-03-23 21:18:28.979  INFO 26839 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:18:28.984  INFO 26839 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 21:18:29.002  INFO 26839 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-23 21:31:59.266  INFO 32030 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 32030 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 21:31:59.270  INFO 32030 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 21:31:59.343  INFO 32030 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 21:31:59.343  INFO 32030 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 21:32:00.288  INFO 32030 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:32:00.289  INFO 32030 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 21:32:00.367  INFO 32030 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 4 JPA repository interfaces.
-2022-03-23 21:32:00.588  INFO 32030 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:32:00.589  INFO 32030 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 21:32:00.605  INFO 32030 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:32:00.605  INFO 32030 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:32:00.607  INFO 32030 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:32:00.608  INFO 32030 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:32:00.609  INFO 32030 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JDBC repository interfaces.
-2022-03-23 21:32:01.126  INFO 32030 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@726853e4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:32:01.128  INFO 32030 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:32:01.133  INFO 32030 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:32:01.137  INFO 32030 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 21:32:01.753  INFO 32030 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-03-23 21:32:01.764  INFO 32030 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 21:32:01.764  INFO 32030 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 21:32:02.160  INFO 32030 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 21:32:02.169  INFO 32030 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 21:32:02.170  INFO 32030 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2826 ms
-2022-03-23 21:32:02.387  INFO 32030 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-03-23 21:32:02.454  INFO 32030 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-03-23 21:32:02.593  INFO 32030 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-03-23 21:32:02.731  INFO 32030 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 21:32:03.066  INFO 32030 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 21:32:03.091  INFO 32030 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-03-23 21:32:04.156  INFO 32030 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-03-23 21:32:04.166  INFO 32030 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:32:04.211  INFO 32030 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 21:32:04.288  WARN 32030 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 21:32:05.471  INFO 32030 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a3bbb6d, org.springframework.security.web.context.SecurityContextPersistenceFilter@78a471a0, org.springframework.security.web.header.HeaderWriterFilter@287dc358, org.springframework.security.web.authentication.logout.LogoutFilter@1a30060d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6bc18f88, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@496b55ed, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75cd23c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@520e7edf, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1cdec257, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36daf684, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75196249, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23b72379, org.springframework.security.web.session.SessionManagementFilter@101fe28, org.springframework.security.web.access.ExceptionTranslationFilter@429a4ef2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e09f2d]
-2022-03-23 21:32:05.862  WARN 32030 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 21:32:05.946  WARN 32030 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-2022-03-23 21:32:05.951  INFO 32030 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 21:32:05.956  INFO 32030 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 21:32:05.972  INFO 32030 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-23 21:32:05.976  INFO 32030 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-03-23 21:32:05.995  INFO 32030 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-03-23 21:32:06.021 ERROR 32030 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.5.jar:5.3.5]
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
-	at ru.itlab.BrainMinerApplication.main(BrainMinerApplication.java:16) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:229) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.5.jar:5.3.5]
-	... 20 common frames omitted
-Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:244) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.4.4.jar:2.4.4]
-	... 22 common frames omitted
-Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1075) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:240) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 24 common frames omitted
-Caused by: java.net.BindException: Адрес уже используется
-	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:455) ~[na:na]
-	at java.base/sun.nio.ch.Net.bind(Net.java:447) ~[na:na]
-	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[na:na]
-	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:300) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:253) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1204) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1290) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:614) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1072) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
-	... 26 common frames omitted
-
-2022-03-23 21:37:02.845  INFO [brain-miners-demo,,] 32867 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 32867 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 21:37:02.849  INFO [brain-miners-demo,,] 32867 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 21:37:02.902  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 21:37:02.902  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 21:37:03.875  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:37:03.875  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 21:37:03.918  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 4 JPA repository interfaces.
-2022-03-23 21:37:04.274  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 21:37:04.274  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 21:37:04.283  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:37:04.284  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:37:04.285  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:37:04.286  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 21:37:04.286  INFO [brain-miners-demo,,] 32867 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2022-03-23 21:37:04.395 ERROR [brain-miners-demo,,] 32867 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.sleuth.autoconfig.zipkin2.ZipkinHttpSenderConfiguration$ZipkinServletConfiguration.zipkinRestTemplateProvider
-	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:193) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:153) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
-	at ru.itlab.BrainMinerApplication.main(BrainMinerApplication.java:16) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:487) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:436) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:142) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	... 23 common frames omitted
-Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.springframework.cloud.sleuth.autoconfig.zipkin2.ZipkinHttpSenderConfiguration$ZipkinServletConfiguration.zipkinRestTemplateProvider
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:517) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:506) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:429) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	... 25 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.sleuth.zipkin2.ZipkinRestTemplateProvider
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581) ~[na:na]
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
-	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:398) ~[na:na]
-	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:145) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
-	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:398) ~[na:na]
-	at org.springframework.boot.autoconfigure.condition.FilteringSpringBootCondition.resolve(FilteringSpringBootCondition.java:108) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:525) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:513) ~[spring-boot-autoconfigure-2.4.4.jar:2.4.4]
-	... 27 common frames omitted
-
-2022-03-23 21:37:04.399  WARN [brain-miners-demo,,] 32867 --- [restartedMain] o.s.boot.SpringApplication               : Unable to close ApplicationContext
-
-java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.sleuth.autoconfig.zipkin2.ZipkinHttpSenderConfiguration$ZipkinServletConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@3b192d32]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481) ~[spring-core-5.3.5.jar:5.3.5]
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358) ~[spring-core-5.3.5.jar:5.3.5]
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414) ~[spring-core-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:747) ~[spring-beans-5.3.5.jar:5.3.5]
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[na:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:746) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:685) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:656) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1670) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:570) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:542) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:667) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:659) ~[spring-beans-5.3.5.jar:5.3.5]
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1300) ~[spring-context-5.3.5.jar:5.3.5]
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:901) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:889) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:876) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:817) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:336) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
-	at ru.itlab.BrainMinerApplication.main(BrainMinerApplication.java:16) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.4.jar:2.4.4]
-Caused by: java.lang.NoClassDefFoundError: org/springframework/cloud/sleuth/zipkin2/ZipkinRestTemplateProvider
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166) ~[na:na]
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309) ~[na:na]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463) ~[spring-core-5.3.5.jar:5.3.5]
-	... 26 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.sleuth.zipkin2.ZipkinRestTemplateProvider
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581) ~[na:na]
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
-	... 30 common frames omitted
-
-2022-03-23 22:13:47.797  INFO 39571 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 39571 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 22:13:47.813  INFO 39571 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 22:13:47.957  INFO 39571 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 22:13:47.958  INFO 39571 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 22:13:49.011  INFO 39571 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 22:13:49.012  INFO 39571 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 22:13:49.078  INFO 39571 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 4 JPA repository interfaces.
-2022-03-23 22:13:49.540  INFO 39571 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 22:13:49.540  INFO 39571 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 22:13:49.551  INFO 39571 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:13:49.554  INFO 39571 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:13:49.556  INFO 39571 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:13:49.557  INFO 39571 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:13:49.558  INFO 39571 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
-2022-03-23 22:13:50.232  INFO 39571 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@37e039d1' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:13:50.234  INFO 39571 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:13:50.240  INFO 39571 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:13:50.243  INFO 39571 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:13:51.225  INFO 39571 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-23 22:13:51.237  INFO 39571 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 22:13:51.237  INFO 39571 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 22:13:51.638  INFO 39571 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 22:13:51.646  INFO 39571 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 22:13:51.647  INFO 39571 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3687 ms
-2022-03-23 22:13:52.067  INFO 39571 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-03-23 22:13:52.149  INFO 39571 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-03-23 22:13:52.329  INFO 39571 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-03-23 22:13:52.456  INFO 39571 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 22:13:52.693  INFO 39571 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 22:13:52.708  INFO 39571 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-03-23 22:13:53.839  INFO 39571 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-03-23 22:13:53.852  INFO 39571 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 22:13:53.913  INFO 39571 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 22:13:53.975  WARN 39571 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 22:13:55.125  INFO 39571 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12d4c113, org.springframework.security.web.context.SecurityContextPersistenceFilter@6ef4f1d3, org.springframework.security.web.header.HeaderWriterFilter@1f68da6f, org.springframework.security.web.authentication.logout.LogoutFilter@21b5a849, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6b73265e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@22bf3f14, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@46bd5e41, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7c0dda2c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7d9f921, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68af9f76, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@93ac6b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60c7b0bc, org.springframework.security.web.session.SessionManagementFilter@5d102098, org.springframework.security.web.access.ExceptionTranslationFilter@3bae0d59, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4540ef6d]
-2022-03-23 22:13:55.903  WARN 39571 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 22:13:55.945  INFO 39571 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-03-23 22:13:56.068  INFO 39571 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-23 22:13:56.100  INFO 39571 --- [restartedMain] ru.itlab.BrainMinerApplication           : Started BrainMinerApplication in 9.026 seconds (JVM running for 12.108)
-2022-03-23 22:13:56.359  INFO 39571 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-23 22:13:56.362  INFO 39571 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-23 22:13:56.367  INFO 39571 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2022-03-23 22:15:27.415  INFO 39571 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 22:15:27.435  INFO 39571 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 22:15:27.498  INFO 39571 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-03-23 22:15:46.074  INFO 40037 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 40037 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
-2022-03-23 22:15:46.126  INFO 40037 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
-2022-03-23 22:15:46.258  INFO 40037 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-23 22:15:46.259  INFO 40037 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-23 22:15:47.405  INFO 40037 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 22:15:47.406  INFO 40037 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-03-23 22:15:47.473  INFO 40037 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 4 JPA repository interfaces.
-2022-03-23 22:15:47.950  INFO 40037 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-23 22:15:47.952  INFO 40037 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-03-23 22:15:47.964  INFO 40037 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:15:47.965  INFO 40037 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:15:47.965  INFO 40037 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:15:47.966  INFO 40037 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-03-23 22:15:47.966  INFO 40037 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
-2022-03-23 22:15:48.468  INFO 40037 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@38fc5310' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:15:48.470  INFO 40037 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:15:48.475  INFO 40037 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:15:48.481  INFO 40037 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-03-23 22:15:49.249  INFO 40037 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-03-23 22:15:49.264  INFO 40037 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-23 22:15:49.264  INFO 40037 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2022-03-23 22:15:49.699  INFO 40037 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2022-03-23 22:15:49.712  INFO 40037 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-23 22:15:49.713  INFO 40037 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3452 ms
-2022-03-23 22:15:50.414  INFO 40037 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-03-23 22:15:50.689  INFO 40037 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-03-23 22:15:51.978  INFO 40037 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 22:15:52.042  INFO 40037 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-23 22:15:52.122  WARN 40037 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-03-23 22:15:53.295  INFO 40037 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6df91af0, org.springframework.security.web.context.SecurityContextPersistenceFilter@75981d52, org.springframework.security.web.header.HeaderWriterFilter@2fc5d553, org.springframework.security.web.authentication.logout.LogoutFilter@6552a393, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1e7c7f4d, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@278e1d09, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@29b4a4ab, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@696c9271, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6fb29627, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6170a7b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cbd411b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35e16d67, org.springframework.security.web.session.SessionManagementFilter@629117ba, org.springframework.security.web.access.ExceptionTranslationFilter@7d76c2c5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@63d9eeae]
-2022-03-23 22:15:54.108  WARN 40037 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
-2022-03-23 22:15:54.143  INFO 40037 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-03-23 22:15:54.247  INFO 40037 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-03-23 22:15:54.268  INFO 40037 --- [restartedMain] ru.itlab.BrainMinerApplication           : Started BrainMinerApplication in 9.157 seconds (JVM running for 12.891)
-2022-03-23 22:15:54.858  INFO 40037 --- [RMI TCP Connection(6)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-23 22:15:54.860  INFO 40037 --- [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-23 22:15:54.870  INFO 40037 --- [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2022-03-23 22:20:34.829  INFO 40037 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-03-23 22:20:34.838  INFO 40037 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-03-23 22:20:34.855  INFO 40037 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-24 15:43:10.359  INFO 7006 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 7006 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
+2022-03-24 15:43:10.373  INFO 7006 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
+2022-03-24 15:43:10.495  INFO 7006 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-24 15:43:10.497  INFO 7006 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-24 15:43:11.771  INFO 7006 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-24 15:43:11.772  INFO 7006 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-24 15:43:11.858  INFO 7006 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
+2022-03-24 15:43:12.400  INFO 7006 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-24 15:43:12.400  INFO 7006 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-03-24 15:43:12.416  INFO 7006 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:43:12.417  INFO 7006 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:43:12.418  INFO 7006 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:43:12.420  INFO 7006 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:43:12.420  INFO 7006 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JDBC repository interfaces.
+2022-03-24 15:43:13.043  INFO 7006 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4df1e74f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:43:13.046  INFO 7006 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:43:13.054  INFO 7006 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:43:13.059  INFO 7006 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:43:13.913  INFO 7006 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-24 15:43:13.931  INFO 7006 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-24 15:43:13.932  INFO 7006 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2022-03-24 15:43:14.414  INFO 7006 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-03-24 15:43:14.428  INFO 7006 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-24 15:43:14.428  INFO 7006 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3929 ms
+2022-03-24 15:43:15.326  INFO 7006 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-24 15:43:15.628  INFO 7006 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-24 15:43:17.050  INFO 7006 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-24 15:43:17.129  INFO 7006 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-24 15:43:17.208  WARN 7006 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-24 15:43:18.609  INFO 7006 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5145e84e, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c9627bd, org.springframework.security.web.header.HeaderWriterFilter@583b84a1, org.springframework.security.web.authentication.logout.LogoutFilter@9d1c717, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@87154e9, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@71c7fda9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4e3c63d0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@32cc3407, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2740d749, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@635d573c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@661b4ce3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51a1372, org.springframework.security.web.session.SessionManagementFilter@1acba8a8, org.springframework.security.web.access.ExceptionTranslationFilter@2228116, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f7f589]
+2022-03-24 15:43:19.484  WARN 7006 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2022-03-24 15:43:19.526  INFO 7006 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-03-24 15:43:19.644  INFO 7006 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-24 15:43:19.673  INFO 7006 --- [restartedMain] ru.itlab.BrainMinerApplication           : Started BrainMinerApplication in 9.942 seconds (JVM running for 12.537)
+2022-03-24 15:43:20.117  INFO 7006 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-24 15:43:20.120  INFO 7006 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-24 15:43:20.124  INFO 7006 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-03-24 15:47:18.488  INFO 7006 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-24 15:47:18.494  INFO 7006 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-24 15:47:18.507  INFO 7006 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-24 15:47:26.196  INFO 8246 --- [restartedMain] ru.itlab.BrainMinerApplication           : Starting BrainMinerApplication using Java 11.0.12 on koala1101-TM1703 with PID 8246 (/home/koala1101/IdeaProjects/BrainMiners/target/classes started by koala1101 in /home/koala1101/IdeaProjects/BrainMiners)
+2022-03-24 15:47:26.201  INFO 8246 --- [restartedMain] ru.itlab.BrainMinerApplication           : No active profile set, falling back to default profiles: default
+2022-03-24 15:47:26.267  INFO 8246 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-24 15:47:26.268  INFO 8246 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-24 15:47:27.201  INFO 8246 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-24 15:47:27.202  INFO 8246 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-24 15:47:27.253  INFO 8246 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 4 JPA repository interfaces.
+2022-03-24 15:47:27.617  INFO 8246 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-24 15:47:27.618  INFO 8246 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-03-24 15:47:27.628  INFO 8246 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.MesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:47:27.629  INFO 8246 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.PropRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:47:27.630  INFO 8246 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.TemplatesRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:47:27.630  INFO 8246 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ru.itlab.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-24 15:47:27.631  INFO 8246 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2022-03-24 15:47:28.054  INFO 8246 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7e44b156' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:47:28.057  INFO 8246 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration' of type [org.springframework.boot.autoconfigure.security.oauth2.method.OAuth2MethodSecurityExpressionHandlerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:47:28.062  INFO 8246 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityExpressionHandler' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:47:28.065  INFO 8246 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-24 15:47:28.584  INFO 8246 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-24 15:47:28.593  INFO 8246 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-24 15:47:28.594  INFO 8246 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2022-03-24 15:47:28.896  INFO 8246 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-03-24 15:47:28.904  INFO 8246 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-24 15:47:28.904  INFO 8246 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2635 ms
+2022-03-24 15:47:29.451  INFO 8246 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-24 15:47:29.639  INFO 8246 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-24 15:47:30.542  INFO 8246 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-24 15:47:30.585  INFO 8246 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-24 15:47:30.632  WARN 8246 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-24 15:47:31.551  INFO 8246 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3029c01d, org.springframework.security.web.context.SecurityContextPersistenceFilter@5807949a, org.springframework.security.web.header.HeaderWriterFilter@54013479, org.springframework.security.web.authentication.logout.LogoutFilter@8b0383b, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1e55cd35, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5f85203, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5277783e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@768a83d8, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6b7e6691, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19135d4b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bc59e6a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@798e0cee, org.springframework.security.web.session.SessionManagementFilter@553ade31, org.springframework.security.web.access.ExceptionTranslationFilter@17a53da0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13fffbac]
+2022-03-24 15:47:32.145  WARN 8246 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2022-03-24 15:47:32.176  INFO 8246 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-03-24 15:47:32.258  INFO 8246 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-24 15:47:32.279  INFO 8246 --- [restartedMain] ru.itlab.BrainMinerApplication           : Started BrainMinerApplication in 6.503 seconds (JVM running for 8.383)
+2022-03-24 15:47:32.513  INFO 8246 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-24 15:47:32.514  INFO 8246 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-24 15:47:32.515  INFO 8246 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
