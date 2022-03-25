@@ -15,5 +15,4 @@ public class BrainMinerApplication {
     public static void main(String[] args) {
         SpringApplication.run(BrainMinerApplication.class, args);
     }
-
 }
